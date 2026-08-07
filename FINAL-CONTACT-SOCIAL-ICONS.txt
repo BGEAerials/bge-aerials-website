@@ -1,0 +1,4 @@
+Final contact-page change:
+- Mobile Contact social icons now use the same metallic icon artwork as the approved desktop Contact page.
+- Only the mobile Contact social icons were changed.
+- All other mobile pages and all desktop pages remain unchanged.

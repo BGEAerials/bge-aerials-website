@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Contact B.G.E. Aerials for aerial photography, videography, commercial media, and real estate projects.">
+  <title>Contact | B.G.E. Aerials</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width:100%; min-height:100%; margin:0; background:#000; }
+    body { overflow:hidden; font-family:Arial,Helvetica,sans-serif; }
+    .contact-screen { position:fixed; inset:0; width:100vw; height:100vh; overflow:hidden; background:#000; }
+    .contact-screen > img { position:absolute; inset:0; display:block; width:100%; height:100%; max-width:none; object-fit:fill; object-position:center; user-select:none; pointer-events:none; -webkit-user-drag:none; }
+    .hotspot { position:absolute; z-index:5; display:block; overflow:hidden; color:transparent; text-indent:-9999px; white-space:nowrap; }
+    .hotspot:focus-visible { outline:3px solid #fff; outline-offset:-3px; }
+    .nav { top:1.3%; height:7.8%; }
+    .home { left:28.2%; width:9.5%; }
+    .services { left:39.4%; width:10.7%; }
+    .works { left:51.2%; width:9.2%; }
+    .about { left:62.0%; width:9.0%; }
+    .contact { left:72.5%; width:10.3%; }
+    .social-x { left:29.7%; top:83.8%; width:4.2%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-instagram { left:37.8%; top:83.8%; width:4.2%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-tiktok { left:46.3%; top:83.8%; width:4.5%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-facebook { left:55.9%; top:83.8%; width:3.8%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-youtube { left:63.9%; top:83.8%; width:5.0%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+
+    .contact-form { position:absolute; z-index:4; inset:0; margin:0; pointer-events:none; }
+    .field, .submit-button { position:absolute; pointer-events:auto; border:1px solid #cfd3d9; border-radius:3px; background:#fff; color:#111; font:inherit; font-size:clamp(10px,1.05vw,16px); padding:0 1.15%; outline:none; }
+    .field:focus { border-color:#111; box-shadow:0 0 0 3px rgba(0,0,0,.12); }
+    .first-name { left:52.05%; top:17.2%; width:18.35%; height:5.0%; }
+    .last-name { left:71.88%; top:17.2%; width:20.18%; height:5.0%; }
+    .phone { left:52.05%; top:27.1%; width:40.0%; height:4.8%; }
+    .email { left:52.05%; top:36.65%; width:40.0%; height:4.8%; }
+    .project-type { left:52.05%; top:45.95%; width:40.0%; height:4.8%; appearance:auto; }
+    .details { left:52.05%; top:55.15%; width:40.0%; height:12.25%; padding-top:1.15%; resize:none; }
+    .submit-button { left:51.95%; top:69.1%; width:40.15%; height:6.35%; border:0; border-radius:2px; background:#050505; color:#fff; cursor:pointer; font-family:Impact,'Arial Narrow',Arial,sans-serif; font-size:clamp(14px,1.65vw,26px); letter-spacing:.08em; text-transform:uppercase; }
+    .submit-button:hover { background:#1b1b1b; }
+    .submit-button:focus-visible { outline:3px solid #d2d2d2; outline-offset:2px; }
+    .status { position:absolute; left:52.05%; top:76%; width:40%; margin:0; text-align:center; font-size:clamp(9px,.85vw,13px); color:#111; pointer-events:none; }
+    .honeypot { position:absolute!important; left:-9999px!important; width:1px!important; height:1px!important; overflow:hidden!important; }
+
+    @media (max-width:760px) {
+      body { overflow:auto; }
+      .contact-screen { position:relative; width:100%; height:auto; min-height:100svh; aspect-ratio:3/2; }
+      .contact-screen > img { object-fit:contain; background:#000; }
+      .field { font-size:clamp(7px,1.9vw,12px); }
+      .submit-button { font-size:clamp(9px,2.3vw,16px); }
+    }
+
+    .shared-corner-logo { display:none; }
+    @media (min-width:761px) {
+      .shared-corner-logo { display:block; position:fixed; z-index:20; left:clamp(28px,2.55vw,42px); top:clamp(8px,.75vw,13px); width:clamp(215px,18.23vw,300px); height:auto; line-height:0; }
+      .shared-corner-logo::before { content:""; position:absolute; z-index:-1; inset:clamp(-8px,-.5vw,-3px) clamp(-10px,-.65vw,-4px); background:#000; }
+      .shared-corner-logo img { display:block; width:100%; height:auto; }
+    }
+  
+    .desktop-standard-header{display:none}
+    @media (min-width:761px){
+      .desktop-standard-header{
+        display:flex;position:fixed;inset:0 0 auto 0;z-index:100000;
+        width:100vw;height:70px;background:#050505;
+        align-items:center;justify-content:center;
+      }
+      .desktop-standard-logo{
+        position:absolute;left:28px;top:7px;width:210px;height:56px;
+        overflow:hidden;pointer-events:none;user-select:none;
+      }
+      .desktop-standard-logo img{
+        display:block;width:100%;height:56px;object-fit:contain;object-position:left center;
+      }
+      .desktop-standard-nav{display:flex;align-items:center;justify-content:center;gap:88px;height:70px}
+      .desktop-standard-nav a{
+        position:relative;display:flex;align-items:center;height:70px;
+        color:#d9d9d9;text-decoration:none;text-transform:uppercase;
+        font-family:"Arial Narrow",Arial,Helvetica,sans-serif;
+        font-size:21px;font-weight:500;line-height:70px;letter-spacing:.08em;white-space:nowrap;
+        background:linear-gradient(180deg,#ffffff 0%,#d5d5d5 35%,#858585 52%,#f3f3f3 72%,#b8b8b8 100%);
+        -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+        text-shadow:0 1px 1px rgba(255,255,255,.20),0 2px 4px rgba(0,0,0,.65);
+      }
+      .desktop-standard-nav a::after{
+        content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;
+        background:linear-gradient(90deg,#777,#fff,#777);transform:scaleX(0);
+      }
+      .desktop-standard-nav a:hover::after,
+      .desktop-standard-nav a.active::after{transform:scaleX(1)}
+      .contact-screen>.nav{display:none!important}
+    }
+
+    .success-screen {
+      position:fixed; inset:0; z-index:200000; display:none; place-items:center;
+      background:#050505; color:#fff; text-align:center; padding:24px; overflow:auto;
+    }
+    .success-screen.is-visible { display:grid; }
+    .success-card { width:min(720px,92vw); }
+    .success-logo { width:min(440px,85vw); height:auto; margin:0 auto 28px; display:block; }
+    .success-title { font-size:clamp(30px,5vw,62px); margin:0 0 20px; text-transform:uppercase; }
+    .success-copy { font-size:clamp(16px,2vw,22px); line-height:1.55; color:#d8d8d8; margin:12px 0; }
+    .success-home { display:inline-block; margin-top:24px; padding:14px 28px; background:#fff; color:#000; text-decoration:none; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+
+
+
+    /* Mobile Contact page — rebuilt with native form controls to prevent overlay/duplication */
+    .mobile-contact-art { display:none; }
+    @media (max-width:760px) {
+      html,body{margin:0;width:100%;min-height:100%;background:#000;overflow-x:hidden}
+      body{overflow-y:auto!important}
+      .desktop-standard-header,.contact-screen{display:none!important}
+      .mobile-contact-art{display:block;width:100%;max-width:853px;margin:0 auto;background:#000;color:#111;line-height:normal}
+      .mobile-contact-header{height:92px;background:#050505;display:flex;align-items:center;justify-content:space-between;padding:8px 18px 8px 16px}
+      .mobile-logo-home{display:block;width:min(48vw,330px);line-height:0}
+      .mobile-logo-home img{display:block;width:100%;height:auto}
+      .mobile-menu-button{position:relative;width:54px;height:54px;border:0;background:transparent;padding:0;cursor:pointer}
+      .mobile-menu-button span,.mobile-menu-button::before,.mobile-menu-button::after{content:"";position:absolute;left:7px;right:7px;height:5px;border-radius:4px;background:#f4f4f4;box-shadow:0 1px 3px rgba(255,255,255,.25)}
+      .mobile-menu-button::before{top:13px}.mobile-menu-button span{top:25px}.mobile-menu-button::after{top:37px}
+      .mobile-contact-hero{background:#000;line-height:0}
+      .mobile-contact-hero img{display:block;width:100%;height:auto}
+      .mobile-form-section{background:#fff;padding:38px 5.7% 30px}
+      .mobile-live-form{position:static!important;inset:auto!important;z-index:auto!important;margin:0!important;pointer-events:auto!important;line-height:normal!important;display:grid;grid-template-columns:1fr 1fr;gap:22px 4.4%}
+      .mobile-live-form .form-group{display:flex;flex-direction:column;gap:9px;min-width:0}
+      .mobile-live-form .form-group.full{grid-column:1/-1}
+      .mobile-live-form label{font:600 clamp(14px,3.2vw,19px)/1.25 Arial,Helvetica,sans-serif;color:#111}
+      .mobile-live-form label small{font-size:.72em;font-weight:500;margin-left:8px}
+      .mobile-live-form .mfield,.mobile-live-form .msubmit{position:static!important;left:auto!important;top:auto!important;width:100%!important;height:auto!important;pointer-events:auto!important;box-sizing:border-box;margin:0;border:1px solid #cfd3d9;border-radius:4px;background:#fff;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:clamp(16px,4vw,21px);padding:16px 18px;outline:none}
+      .mobile-live-form .mfield:focus{border-color:#666;box-shadow:0 0 0 2px rgba(0,0,0,.09)}
+      .mobile-live-form select.mfield{min-height:58px}
+      .mobile-live-form textarea.mfield{min-height:150px;resize:vertical;padding-top:16px}
+      .mobile-live-form .msubmit{grid-column:1/-1;min-height:64px;border:0;border-radius:4px;background:#020202;color:#fff;text-transform:uppercase;letter-spacing:.06em;font-family:Impact,'Arial Narrow',Arial,sans-serif;font-size:clamp(20px,5vw,29px);cursor:pointer;padding:14px 18px}
+      .mobile-live-form .mstatus{grid-column:1/-1;margin:-8px 0 0;text-align:center;color:#111;font:13px/1.35 Arial,Helvetica,sans-serif}
+      .honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+      .mobile-contact-footer{background:#050505;color:#fff;padding:34px 7% 24px;text-align:center}
+      .mobile-social-title{display:flex;align-items:center;justify-content:center;gap:18px;max-width:620px;margin:0 auto 20px}
+      .mobile-social-title-line{display:block;flex:1;height:2px;max-width:180px;background:linear-gradient(90deg,transparent,#f4f4f4)}
+      .mobile-social-title-line:last-child{background:linear-gradient(90deg,#f4f4f4,transparent)}
+      .mobile-social-title-text{font:500 clamp(30px,7vw,43px)/1 Impact,'Arial Narrow',Arial,sans-serif;letter-spacing:.10em;color:#f2f2f2;text-transform:uppercase;text-shadow:0 1px 0 #fff,0 2px 0 #777,0 3px 5px rgba(255,255,255,.22)}
+      .mobile-social-row{display:flex;align-items:center;justify-content:space-between;max-width:620px;margin:0 auto 18px}
+      .mobile-social-row a{display:grid;place-items:center;width:54px;height:54px;color:#eee;text-decoration:none}
+      .mobile-social-row img{width:44px;height:44px;display:block;object-fit:contain}
+      .mobile-handle{margin:0 0 14px;font:800 clamp(24px,6vw,36px)/1 Arial,Helvetica,sans-serif;letter-spacing:.10em;color:#d8d8d8;text-transform:uppercase;text-shadow:0 1px 0 #fff,0 2px 0 #a2a2a2,0 3px 0 #555,0 4px 5px rgba(255,255,255,.15)}
+      .mobile-copyright{margin:0;padding-top:14px;border-top:1px solid rgba(255,255,255,.36);font:400 clamp(12px,3.1vw,16px)/1.35 Arial,Helvetica,sans-serif;color:#ddd}
+      .mobile-contact-drawer{display:none;position:fixed;z-index:100000;left:0;right:0;top:0;padding:82px 28px 30px;background:rgba(0,0,0,.98);border-bottom:1px solid rgba(255,255,255,.22);line-height:1.2;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+      .mobile-contact-drawer.open{display:grid;gap:6px}
+      .mobile-contact-drawer a{display:block;padding:14px 8px;color:#eee;text-decoration:none;text-transform:uppercase;font:600 17px/1.15 Arial,Helvetica,sans-serif;letter-spacing:.12em;border-bottom:1px solid rgba(255,255,255,.12)}
+      .mobile-contact-close{position:absolute;right:21px;top:19px;width:46px;height:46px;border:0;background:transparent;color:#fff;font:300 42px/42px Arial,sans-serif;cursor:pointer}
+      .success-screen{position:fixed}
+    }
+
+
+  
+    @media (max-width:760px){
+      :root{--bge-mobile-header-height:92px}
+      .mobile-contact-header{
+        position:fixed!important;
+        top:0!important;
+        left:0!important;
+        right:0!important;
+        width:100%!important;
+        height:var(--bge-mobile-header-height)!important;
+        z-index:10000!important;
+        margin:0!important;
+        transform:none!important;
+      }
+      .mobile-contact-art{
+        padding-top:var(--bge-mobile-header-height)!important;
+      }
+      .mobile-contact-drawer{
+        position:fixed!important;
+        top:var(--bge-mobile-header-height)!important;
+        left:0!important;
+        right:0!important;
+        z-index:9999!important;
+      }
+    }
+
+
+    /* FINAL exact mobile Contact layout from approved reference image. Desktop rules are unchanged. */
+    @media (max-width:760px){
+      html,body{width:100%;min-height:100%;margin:0;background:#000;overflow-x:hidden}
+      body{overflow-y:auto!important}
+      .desktop-standard-header,.contact-screen{display:none!important}
+      .mobile-contact-art{display:block!important;width:100%;max-width:none;margin:0;padding-top:clamp(42px,11.035vw,84px)!important;background:#000}
+
+      .mobile-contact-header-exact{display:block!important;position:fixed!important;z-index:10000!important;top:0!important;left:0!important;right:0!important;width:100%!important;height:auto!important;padding:0!important;margin:0!important;background:#000!important;line-height:0!important}
+      .mobile-contact-header-exact>img{display:block;width:100%;height:auto;margin:0}
+      .mobile-header-home-hotspot{display:block!important;position:absolute!important;left:2.5%!important;top:5%!important;width:36%!important;height:90%!important;background:transparent!important;z-index:3!important}
+      .mobile-menu-hotspot{display:block!important;position:absolute!important;right:1.5%!important;top:4%!important;width:11%!important;height:92%!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;z-index:4!important}
+      .mobile-menu-hotspot::before,.mobile-menu-hotspot::after,.mobile-menu-hotspot span{display:none!important}
+
+      .mobile-contact-hero-exact{display:block!important;width:100%;margin:0!important;padding:0!important;background:#000!important;line-height:0!important}
+      .mobile-contact-hero-exact>img{display:block;width:100%;height:auto;margin:0}
+
+      .mobile-form-section-exact{display:block!important;background:#fff!important;padding:27px 6.15% 25px!important;color:#111!important}
+      .mobile-form-section-exact .mobile-live-form{position:static!important;display:grid!important;grid-template-columns:1fr 1fr!important;column-gap:4.1%!important;row-gap:19px!important;width:100%!important;margin:0!important;padding:0!important;pointer-events:auto!important;line-height:normal!important}
+      .mobile-form-section-exact .form-group{display:flex!important;flex-direction:column!important;gap:8px!important;min-width:0!important;margin:0!important}
+      .mobile-form-section-exact .form-group.full{grid-column:1/-1!important}
+      .mobile-form-section-exact label{display:block!important;margin:0!important;color:#111!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(14px,2.05vw,21px)!important;font-weight:500!important;line-height:1.15!important}
+      .mobile-form-section-exact label small{margin-left:9px!important;font-size:.73em!important;font-weight:500!important}
+      .mobile-form-section-exact .mfield{position:static!important;display:block!important;width:100%!important;height:58px!important;min-height:58px!important;margin:0!important;padding:0 21px!important;border:1px solid #c8cdd3!important;border-radius:3px!important;background:#fff!important;color:#222!important;box-shadow:none!important;outline:none!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(15px,1.95vw,20px)!important;font-weight:400!important;line-height:58px!important;appearance:none!important}
+      .mobile-form-section-exact .mfield::placeholder{color:#333!important;opacity:1!important}
+      .mobile-form-section-exact textarea.mfield{height:124px!important;min-height:124px!important;padding:15px 21px!important;line-height:1.35!important;resize:none!important}
+      .mobile-email-shell{position:relative;width:100%}
+      .mobile-email-shell::after{content:"⌄";position:absolute;right:18px;top:50%;transform:translateY(-56%);color:#000;font:700 22px/1 Arial,sans-serif;pointer-events:none}
+      .mobile-email-shell .mfield{padding-right:48px!important}
+      .mobile-form-section-exact .msubmit{position:static!important;grid-column:1/-1!important;width:100%!important;height:82px!important;min-height:82px!important;margin:4px 0 0!important;padding:0!important;border:0!important;border-radius:3px!important;background:#020202!important;color:#fff!important;font-family:Impact,'Arial Narrow',Arial,sans-serif!important;font-size:clamp(24px,3.2vw,34px)!important;font-weight:400!important;line-height:82px!important;letter-spacing:.02em!important;text-transform:uppercase!important;cursor:pointer!important}
+      .mobile-form-section-exact .mstatus{grid-column:1/-1!important;min-height:0!important;margin:-10px 0 0!important;color:#111!important;text-align:center!important;font:12px/1.2 Arial,sans-serif!important}
+
+      .mobile-contact-footer-exact{display:block!important;position:relative!important;width:100%!important;margin:0!important;padding:0!important;background:#000!important;line-height:0!important;text-align:initial!important}
+      .mobile-contact-footer-exact>img{display:block!important;width:100%!important;height:auto!important;margin:0!important}
+      .mobile-social-hotspots{position:absolute;left:0;right:0;top:29%;height:31%;z-index:3}
+      .mobile-social-hotspots a{position:absolute;display:block;top:0;height:100%;background:transparent}
+      .mobile-social-hotspots .sx{left:14.5%;width:12%}.mobile-social-hotspots .si{left:29.7%;width:12%}.mobile-social-hotspots .st{left:44.6%;width:12%}.mobile-social-hotspots .sf{left:59.8%;width:10%}.mobile-social-hotspots .sy{left:73.6%;width:14%}
+
+      .mobile-contact-drawer{top:clamp(42px,11.035vw,84px)!important}
+    }
+
+    @media (max-width:760px){
+      .mobile-contact-drawer{
+        display:none;position:fixed!important;left:0!important;right:0!important;top:92px!important;bottom:0!important;
+        width:100%!important;height:auto!important;padding:50px 24px 30px!important;margin:0!important;
+        background:rgba(0,0,0,.90)!important;border:0!important;box-shadow:none!important;z-index:100000!important;
+        align-content:start!important;justify-items:center!important;gap:34px!important;
+      }
+      .mobile-contact-drawer.open{display:grid!important}
+      .mobile-contact-drawer a{display:block!important;width:auto!important;padding:0!important;margin:0!important;border:0!important;color:#fff!important;text-decoration:none!important;text-transform:uppercase!important;font-family:Arial,Helvetica,sans-serif!important;font-size:22px!important;font-weight:700!important;line-height:1.35!important;letter-spacing:.12em!important;text-align:center!important}
+      .mobile-contact-close{display:none!important}
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Contact page: native controls prevent the old screenshot/form overlay. -->
+  <main class="mobile-contact-art" aria-label="B.G.E. Aerials mobile contact page">
+    <header class="mobile-contact-header mobile-contact-header-exact">
+      <img src="assets/contact-mobile-header-exact.png" alt="B.G.E. Aerials">
+      <a class="mobile-logo-home mobile-header-home-hotspot" href="index.html" aria-label="B.G.E. Aerials Home"></a>
+      <button class="mobile-menu-button mobile-menu-hotspot" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </header>
+
+    <section class="mobile-contact-hero mobile-contact-hero-exact" aria-label="Let's elevate your vision">
+      <img src="assets/contact-mobile-hero-exact.png" alt="Let's elevate your vision. B.G.E. Aerials aerial view.">
+    </section>
+
+    <section class="mobile-form-section mobile-form-section-exact">
+      <form class="mobile-live-form" action="https://formsubmit.co/ajax/cory@bgeaerials.com" method="POST">
+        <input type="hidden" name="_subject" value="New B.G.E. Aerials project inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <label class="honeypot">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+
+        <div class="form-group"><label for="m-first">First Name <small>(required)</small></label><input id="m-first" class="mfield" type="text" name="First Name" placeholder="First Name" autocomplete="given-name" required></div>
+        <div class="form-group"><label for="m-last">Last Name <small>(required)</small></label><input id="m-last" class="mfield" type="text" name="Last Name" placeholder="Last Name" autocomplete="family-name" required></div>
+        <div class="form-group full"><label for="m-phone">Phone <small>(required)</small></label><input id="m-phone" class="mfield" type="tel" name="Phone" placeholder="Phone Number" autocomplete="tel" required></div>
+        <div class="form-group full"><label for="m-email">Email <small>(required)</small></label><div class="mobile-email-shell"><input id="m-email" class="mfield" type="email" name="Email" placeholder="Email Address Type" autocomplete="email" required></div></div>
+        <div class="form-group full"><label for="m-details">Project Details <small>(required)</small></label><textarea id="m-details" class="mfield" name="Project Details" placeholder="Tell us about your project..." required></textarea></div>
+        <button class="msubmit" type="submit">Send Message</button>
+        <p class="mstatus" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <footer class="mobile-contact-footer mobile-contact-footer-exact">
+      <img src="assets/contact-mobile-footer-exact.png" alt="B.G.E. Aerials socials and copyright">
+      <div class="mobile-social-hotspots" aria-label="B.G.E. Aerials social media">
+        <a class="sx" href="https://x.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on X"></a>
+        <a class="si" href="https://www.instagram.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Instagram"></a>
+        <a class="st" href="https://www.tiktok.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on TikTok"></a>
+        <a class="sf" href="https://www.facebook.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Facebook"></a>
+        <a class="sy" href="https://www.youtube.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on YouTube"></a>
+      </div>
+    </footer>
+  </main>
+
+  <nav class="mobile-contact-drawer" aria-label="Mobile navigation">
+    <button class="mobile-contact-close" type="button" aria-label="Close menu">×</button>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="works.html">Works</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+
+  <header class="desktop-standard-header" aria-label="Desktop site header">
+    <div class="desktop-standard-logo" aria-label="B.G.E. Aerials">
+      <img src="assets/contact-logo-clean.png" alt="B.G.E. Aerials">
+    </div>
+    <nav class="desktop-standard-nav" aria-label="Primary navigation">
+      <a href="index.html">HOME</a>
+      <a href="services.html">SERVICES</a>
+      <a href="works.html">WORKS</a>
+      <a href="about.html">ABOUT</a>
+      <a class="active" href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <main class="contact-screen" aria-label="B.G.E. Aerials contact page">
+    <img src="assets/contact-desktop-socials-centered.webp?v=20260803-socials-centered" alt="B.G.E. Aerials contact page with Lake Hopatcong aerial view and contact form">
+
+    <a class="hotspot nav home" href="index.html" aria-label="Home">Home</a>
+    <a class="hotspot nav services" href="services.html" aria-label="Services">Services</a>
+    <a class="hotspot nav works" href="works.html" aria-label="Works">Works</a>
+    <a class="hotspot nav about" href="about.html" aria-label="About">About</a>
+    <a class="hotspot nav contact" href="contact.html" aria-label="Contact">Contact</a>
+
+    <form class="contact-form" action="https://formsubmit.co/ajax/cory@bgeaerials.com" method="POST">
+      <input type="hidden" name="_subject" value="New B.G.E. Aerials project inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <label class="honeypot">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+
+      <input class="field first-name" type="text" name="First Name" placeholder="First Name" autocomplete="given-name" required aria-label="First Name">
+      <input class="field last-name" type="text" name="Last Name" placeholder="Last Name" autocomplete="family-name" required aria-label="Last Name">
+      <input class="field phone" type="tel" name="Phone" placeholder="Phone Number" autocomplete="tel" required aria-label="Phone Number">
+      <input class="field email" type="email" name="Email" placeholder="Email Address" autocomplete="email" required aria-label="Email Address">
+      <select class="field project-type" name="Project Type" required aria-label="Project Type">
+        <option value="" selected disabled>Select Project Type</option>
+        <option>Aerial Photography</option>
+        <option>Aerial Videography</option>
+        <option>Commercial Media</option>
+        <option>Real Estate</option>
+        <option>Event Coverage</option>
+        <option>Other</option>
+      </select>
+      <textarea class="field details" name="Project Details" placeholder="Tell us about your project..." required aria-label="Project Details"></textarea>
+      <button class="submit-button" type="submit">Send Message</button>
+      <p class="status" aria-live="polite"></p>
+    </form>
+
+    <a class="hotspot social-x" href="https://x.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on X">X</a>
+    <a class="hotspot social-instagram" href="https://www.instagram.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Instagram">Instagram</a>
+    <a class="hotspot social-tiktok" href="https://www.tiktok.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on TikTok">TikTok</a>
+    <a class="hotspot social-facebook" href="https://www.facebook.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Facebook">Facebook</a>
+    <a class="hotspot social-youtube" href="https://www.youtube.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on YouTube">YouTube</a>
+  </main>
+
+
+  <section class="success-screen" id="successScreen" aria-live="polite" aria-hidden="true">
+    <div class="success-card">
+      <img loading="lazy" decoding="async" class="success-logo" src="assets/contact-logo-clean.png" alt="B.G.E. Aerials">
+      <h1 class="success-title">✓ Message Sent Successfully!</h1>
+      <p class="success-copy">Thanks for contacting <strong>B.G.E. Aerials</strong>.</p>
+      <p class="success-copy">Cory will personally review your inquiry and respond within <strong>24 hours</strong>.</p>
+      <p class="success-copy">I appreciate the opportunity to work with you and look forward to discussing your project.</p>
+      <a class="success-home" href="index.html">Return Home</a>
+    </div>
+  </section>
+
+  <script>
+    const contactForm = document.querySelector('.contact-form');
+    const statusMessage = contactForm.querySelector('.status');
+    const submitButton = contactForm.querySelector('.submit-button');
+    const successScreen = document.getElementById('successScreen');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusMessage.textContent = '';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) {
+          throw new Error('Submission failed');
+        }
+
+        contactForm.reset();
+        successScreen.classList.add('is-visible');
+        successScreen.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      } catch (error) {
+        statusMessage.textContent = 'Your message could not be sent. Please try again.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
+    });
+  </script>
+
+  <script>
+    (function(){
+      const menuButton=document.querySelector('.mobile-menu-button');
+      const drawer=document.querySelector('.mobile-contact-drawer');
+      const closeButton=document.querySelector('.mobile-contact-close');
+      function setMenu(open){
+        if(!menuButton||!drawer)return;
+        drawer.classList.toggle('open',open);
+        menuButton.setAttribute('aria-expanded',String(open));
+      }
+      menuButton?.addEventListener('click',()=>setMenu(true));
+      closeButton?.addEventListener('click',()=>setMenu(false));
+      drawer?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+      const form=document.querySelector('.mobile-live-form');
+      if(form){
+        const status=form.querySelector('.mstatus');
+        const button=form.querySelector('.msubmit');
+        form.addEventListener('submit',async(e)=>{
+          e.preventDefault(); status.textContent=''; button.disabled=true; button.textContent='Sending...';
+          try{
+            const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+            if(!response.ok) throw new Error('Submission failed');
+            form.reset();
+            const success=document.getElementById('successScreen');
+            success?.classList.add('is-visible');
+            success?.setAttribute('aria-hidden','false');
+            document.body.style.overflow='hidden';
+          }catch(err){
+            status.textContent='Your message could not be sent. Please try again.';
+            button.disabled=false; button.textContent='Send Message';
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+Final mobile homepage update:
+- Corrected the B.G.E. centerpiece so the final period is present.
+- Preserved the approved font, spacing, beach artwork, header, and all other content.
+- Desktop homepage and all other desktop/mobile pages are unchanged.

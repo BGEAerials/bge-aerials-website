@@ -1,0 +1,36 @@
+B.G.E. AERIALS — COMPLETE DESKTOP + MOBILE WEBSITE
+
+This package is based on the latest complete website package with the duplicate
+mobile headers removed, and keeps the previously approved desktop and mobile
+pages intact.
+
+Included pages:
+- Home (index.html)
+- Services (services.html)
+- Works (works.html)
+- About (about.html)
+- Contact (contact.html)
+- Thank You (thank-you.html)
+- 404 page
+
+Latest retained changes include:
+- Desktop and mobile versions in one package
+- Mobile headers matched to the approved Contact-page header treatment
+- Mobile headers fixed in place and prevented from moving while scrolling
+- Duplicate mobile headers removed
+- Mobile homepage logo/header fixes retained
+- TikTok links point to https://www.tiktok.com/@BGEAerials
+- Contact form functionality retained
+- Desktop layouts left unchanged
+- Mobile Contact SOCIALS heading now matches the desktop visual treatment
+- Mobile @BGEAERIALS treatment updated to match the desktop styling/case
+
+Deployment:
+Upload the CONTENTS of this ZIP to the root of your GitHub Pages repository.
+Keep the CNAME file in the repository root.
+
+FINAL MOBILE HOMEPAGE UPDATE — 2026-08-07
+- Mobile homepage artwork updated to use the exact approved B.G.E. lettering/font treatment from the supplied reference.
+- B.G.E. spacing preserved exactly as approved.
+- Desktop homepage unchanged.
+- All other desktop and mobile pages unchanged.
