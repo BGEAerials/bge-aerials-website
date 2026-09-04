@@ -1,0 +1,2382 @@
+:root{--black:#070707;--white:#fff;--gold:#e5ad00;--muted:#d8d8d8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;min-height:100%;background:var(--black);font-family:Arial,Helvetica,sans-serif}
+body{overflow-x:hidden;color:#fff}
+a{color:inherit}
+.desktop-art{display:block;position:relative;width:100vw;line-height:0;overflow:hidden}
+.desktop-art>img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.hotspot{position:absolute;z-index:5;display:block;color:transparent;text-indent:-9999px;border-radius:5px}
+.hotspot:focus-visible{outline:3px solid #fff;outline-offset:3px;background:rgba(255,255,255,.12)}
+.home-nav{top:3.3%;height:7%}.home-nav.home{left:23.3%;width:8.2%}.home-nav.services{left:33.1%;width:10.4%}.home-nav.works{left:45.1%;width:8.2%}.home-nav.about{left:56.3%;width:7.7%}.home-nav.contact{left:66.7%;width:9.6%}
+.inner-nav{top:1.6%;height:7.2%}.inner-nav.home{left:27.2%;width:7.1%}.inner-nav.services{left:35.7%;width:8.7%}.inner-nav.works{left:44.8%;width:7.2%}.inner-nav.about{left:53.2%;width:7.2%}.inner-nav.contact{left:62.1%;width:8.2%}
+.mobile-only,.mobile-header,.mobile-drawer{display:none}
+
+/* Shared real mobile UI */
+@media(max-width:760px){
+ body{padding-top:64px;background:#070707}
+ .desktop-art{display:none}
+ .mobile-only{display:block}
+ .mobile-header{display:flex;position:fixed;inset:0 0 auto;z-index:1000;height:64px;align-items:center;justify-content:space-between;padding:0 18px;background:rgba(0,0,0,.96);border-bottom:1px solid rgba(255,255,255,.18)}
+ .mobile-brand{text-decoration:none;font-weight:800;letter-spacing:.15em;font-size:14px}
+ .menu-toggle{border:0;background:transparent;color:#fff;font-size:30px;line-height:1;cursor:pointer;padding:8px}
+ .mobile-drawer{position:fixed;display:none;top:64px;left:0;right:0;z-index:999;background:rgba(0,0,0,.985);padding:10px 18px 18px;border-bottom:1px solid rgba(255,255,255,.18)}
+ .mobile-drawer.open{display:grid}
+ .mobile-drawer a{text-decoration:none;padding:15px 4px;border-bottom:1px solid rgba(255,255,255,.13);font-size:14px;letter-spacing:.16em}
+ .mobile-drawer a:last-child{border-bottom:0}
+ .mobile-drawer a.active{font-weight:800}
+ .mobile-page{min-height:calc(100svh - 64px);background:#080808}
+ .mobile-footer{padding:28px 20px 32px;text-align:center;background:#050505;border-top:1px solid rgba(255,255,255,.14)}
+ .mobile-footer img{display:block;max-width:290px;width:80%;height:auto;margin:0 auto 18px}
+ .mobile-footer p{margin:0;color:#bbb;font-size:12px;letter-spacing:.05em}
+}
+
+/* Home mobile */
+.mobile-home-hero{min-height:calc(100svh - 64px);background:url('assets/home-approved.webp') center center/cover no-repeat;position:relative}
+.mobile-home-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03),rgba(0,0,0,.08) 58%,rgba(0,0,0,.52))}
+.home-mobile-caption{position:absolute;z-index:2;left:18px;right:18px;bottom:24px;text-align:center;font-size:11px;letter-spacing:.25em;color:#fff;text-shadow:0 2px 8px #000}
+
+/* Services mobile */
+.services-mobile-hero{min-height:54svh;background:url('assets/services.webp') 64% 10%/auto 100% no-repeat;position:relative;border-bottom:1px solid rgba(255,255,255,.12)}
+.service-list{display:grid;gap:1px;background:#2b2b2b}
+.service-card{background:#0b0b0b;padding:30px 22px;text-align:center}
+.service-icon{font-size:42px;margin-bottom:15px}
+.service-card h2{margin:0 0 12px;font-size:20px;letter-spacing:.04em}
+.service-card p{margin:0 auto;max-width:330px;color:#d0d0d0;font-size:15px;line-height:1.55}
+
+/* About mobile */
+.about-mobile-photo{height:52svh;background:url('assets/about.jpg') 43% center/cover no-repeat}
+.about-mobile-copy{background:#f4f1ec;color:#111;padding:34px 22px 42px}
+.about-mobile-copy h1{margin:0 0 24px;font-family:Impact,'Arial Narrow',sans-serif;font-size:clamp(42px,12vw,64px);line-height:.93;text-transform:uppercase}
+.about-mobile-copy p{margin:0 0 20px;font-size:16px;line-height:1.7}
+.about-mobile-copy p:last-child{margin-bottom:0}
+
+/* Works mobile */
+.works-mobile-hero{min-height:calc(100svh - 64px);background:url('assets/works.webp') center center/cover no-repeat;position:relative}
+.works-mobile-hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.08)}
+
+/* Contact real page */
+.contact-page{background:#fff;color:#111;min-height:100svh}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100svh - 58px - 235px)}
+.contact-visual{min-height:730px;background:url('assets/contact-left.webp') center/cover no-repeat}
+.contact-form-panel{display:flex;align-items:center;padding:clamp(36px,5vw,76px);background:#fff}
+.contact-form{width:100%;max-width:760px;margin:auto;display:grid;gap:21px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-form label{display:grid;gap:9px;font-size:13px}
+.contact-form label span{font-size:10px;margin-left:6px}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid #d6d8dc;border-radius:3px;background:#fff;color:#111;font:inherit;font-size:16px;padding:14px 15px;min-height:52px;outline:none}
+.contact-form textarea{min-height:132px;resize:vertical}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:#111;box-shadow:0 0 0 3px rgba(0,0,0,.08)}
+.submit-button{min-height:58px;border:0;border-radius:3px;background:#050505;color:#fff;font-size:17px;letter-spacing:.12em;cursor:pointer}
+.contact-footer{background:#050505;color:#fff;min-height:235px;display:grid;place-items:center;padding:24px}
+.contact-footer img{display:block;width:min(820px,90%);height:auto}
+@media(max-width:900px){
+ .contact-page{padding-top:64px}
+ .contact-layout{grid-template-columns:1fr;min-height:auto}
+ .contact-visual{min-height:66svh;background-position:center top}
+ .contact-form-panel{padding:30px 18px 38px}
+ .form-row{grid-template-columns:1fr;gap:21px}
+ .contact-footer{min-height:auto;padding:24px 12px 30px}
+ .contact-footer img{width:100%;max-width:600px}
+}
+@media(max-width:480px){
+ .contact-visual{min-height:58svh}
+ .contact-form{gap:18px}
+ .submit-button{font-size:15px}
+}
+
+/* Expanded desktop navigation click targets */
+@media (min-width:761px){
+  .desktop-art > img{pointer-events:none}
+  .hotspot{cursor:pointer;pointer-events:auto;top:0!important;height:12%!important;transform:none}
+  .inner-nav{top:0!important;height:10%!important}
+}
+
+/* Final phone-first presentation — desktop artwork remains unchanged */
+@media (max-width:760px){
+  body{padding-top:60px}
+  .mobile-header{height:60px;padding:0 16px}
+  .mobile-brand{font-size:12px;letter-spacing:.13em}
+  .menu-toggle{font-size:28px;padding:6px 8px}
+  .mobile-drawer{top:60px;padding:8px 16px 14px}
+  .mobile-drawer a{padding:14px 2px;font-size:13px}
+  .mobile-page{min-height:calc(100svh - 60px)}
+
+  .mobile-home-hero{min-height:calc(100svh - 60px);background-image:linear-gradient(rgba(0,0,0,.16),rgba(0,0,0,.46)),url('assets/home-mobile-approved.webp');background-position:center;background-size:cover;display:flex;align-items:center;justify-content:center;padding:28px 20px 42px}
+  .mobile-home-hero::after{display:none}
+  .mobile-home-content{position:relative;z-index:2;width:100%;text-align:center;margin-top:-20px}
+  .mobile-home-logo{width:min(92%,440px);height:auto;margin:0 auto 22px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.4))}
+  .mobile-home-title{margin:0;color:#fff;font-family:'Arial Narrow',Arial,sans-serif;font-size:clamp(34px,10vw,54px);line-height:.98;letter-spacing:.08em;text-transform:uppercase;text-shadow:0 3px 10px rgba(0,0,0,.8)}
+  .mobile-home-subtitle{margin:18px auto 0;max-width:360px;color:#fff;font-size:13px;line-height:1.55;letter-spacing:.08em;text-transform:uppercase;text-shadow:0 2px 7px #000}
+  .home-mobile-caption{position:static;margin-top:24px;font-size:11px;line-height:1.5;letter-spacing:.22em}
+
+  .services-mobile-hero{min-height:48svh;background-image:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.58)),url('assets/services-mobile-bg.webp');background-position:center;background-size:cover;display:flex;align-items:flex-end;padding:28px 20px}
+  .services-mobile-heading{position:relative;z-index:2;color:#fff}
+  .services-mobile-heading h1{margin:0;font-family:Impact,'Arial Narrow',sans-serif;font-size:clamp(48px,15vw,72px);line-height:.9;letter-spacing:.01em;text-transform:uppercase}
+  .services-mobile-heading p{margin:14px 0 0;max-width:330px;font-size:15px;line-height:1.5}
+  .service-list{grid-template-columns:1fr}
+  .service-card{padding:28px 20px}
+  .service-icon{font-size:38px}
+  .service-card h2{font-size:18px}
+
+  .about-mobile-photo{height:48svh;background-image:url('assets/about-mobile-bg.webp');background-position:center;background-size:cover}
+  .about-mobile-copy{padding:30px 20px 38px}
+  .about-mobile-copy h1{font-size:clamp(40px,12vw,58px);line-height:.94;margin-bottom:22px}
+  .about-mobile-copy p{font-size:15px;line-height:1.65}
+
+  .works-mobile-hero{min-height:calc(100svh - 60px);background-image:url('assets/works-mobile.webp');background-size:cover;background-position:center top}
+  .works-mobile-hero::after{display:none}
+
+  .mobile-footer{padding:24px 18px 28px}
+  .mobile-footer img{width:min(82%,300px)}
+}
+
+@media(max-width:390px){
+  .mobile-home-title{font-size:34px}
+  .mobile-home-subtitle{font-size:12px}
+  .services-mobile-heading h1{font-size:48px}
+}
+
+/* New homepage mobile refinements */
+@media(max-width:760px){
+  .mobile-home-wordmark{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-size:clamp(56px,18vw,88px);line-height:.8;letter-spacing:.02em;color:#f1f1f1;text-shadow:0 6px 14px rgba(0,0,0,.75)}
+  .mobile-home-wordmark span{display:block;margin-top:15px;font-size:.34em;letter-spacing:.42em;font-weight:500;padding-left:.42em}
+  .mobile-home-title{margin-top:32px!important;font-size:clamp(32px,9.5vw,48px)!important;letter-spacing:.04em!important}
+  .mobile-home-motto{display:flex;align-items:center;gap:13px;justify-content:center;margin-top:22px;font-size:11px;letter-spacing:.28em;white-space:nowrap;text-shadow:0 2px 7px #000}
+  .mobile-home-motto span{display:block;width:42px;height:1px;background:rgba(255,255,255,.85)}
+  .home-mobile-caption{font-size:10px!important;letter-spacing:.17em!important;margin-top:20px!important}
+  .mobile-credentials{display:grid;grid-template-columns:1fr 1fr;background:#050505;border-top:1px solid rgba(255,255,255,.18)}
+  .mobile-credentials div{padding:18px 8px;text-align:center;font-size:10px;line-height:1.45;letter-spacing:.12em;border-right:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+  .mobile-credentials div:nth-child(2n){border-right:0}
+}
+
+/* Final approved mobile header: hamburger only. Desktop remains unchanged. */
+@media (max-width:760px){
+  .mobile-header{justify-content:flex-end}
+  .mobile-brand{display:none!important}
+}
+
+
+/* Exact approved homepage image — desktop and mobile */
+@media (max-width:760px){
+  .mobile-home-exact{
+    display:block;
+    height:100svh;
+    min-height:100svh;
+    margin-top:-60px;
+    overflow:hidden;
+    background:#000;
+  }
+  .mobile-home-exact img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+}
+
+
+/* Final approved mobile homepage artwork. Desktop styles and artwork are untouched. */
+@media (max-width:760px){
+  body.home-page{padding-top:0}
+  body.home-page .mobile-header{display:none!important}
+  body.home-page .mobile-drawer{top:76px}
+  body.home-page .mobile-home-exact{
+    display:block;
+    position:relative;
+    width:100%;
+    height:auto;
+    min-height:0;
+    margin:0;
+    overflow:visible;
+    background:#000;
+    line-height:0;
+  }
+  body.home-page .mobile-home-exact img{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    object-position:top center;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  body.home-page .mobile-image-menu{
+    position:absolute;
+    top:15px;
+    right:14px;
+    z-index:1001;
+    width:58px;
+    height:58px;
+    padding:0;
+    opacity:0;
+    cursor:pointer;
+  }
+  body.home-page .mobile-drawer.open{display:grid}
+}
+
+
+/* Corrected mobile About page — no embedded menu and no forced zoom. Desktop remains unchanged. */
+@media (max-width:760px){
+  body.about-page{padding-top:60px}
+  body.about-page > .mobile-header{display:flex!important}
+  .mobile-about-exact{
+    display:block;
+    position:relative;
+    width:100%;
+    min-height:0;
+    margin:0 auto;
+    background:#050505;
+    line-height:0;
+    overflow:visible;
+  }
+  .mobile-about-exact > img{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+    object-position:top center;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  body.about-page > .mobile-drawer{top:60px}
+}
+
+
+/* Rebuilt mobile About artwork: full uncropped composition below the real site header. */
+@media (max-width:760px){
+  body.about-page{
+    padding-top:60px!important;
+    background:#050505;
+  }
+  body.about-page > .mobile-header{
+    display:flex!important;
+    height:60px;
+  }
+  .mobile-about-exact{
+    width:100%;
+    margin:0;
+    padding:0;
+    min-height:0;
+    overflow:visible;
+    line-height:0;
+    background:#050505;
+  }
+  .mobile-about-exact > img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:none;
+    margin:0;
+    object-fit:contain;
+    object-position:top center;
+  }
+}
+
+
+/* Final mobile About artwork: preserve the complete approved image without cropping. */
+@media (max-width:760px){
+  body.about-page{
+    padding-top:0!important;
+    margin:0;
+    background:#050505;
+    overflow-x:hidden;
+  }
+  body.about-page > .mobile-header{
+    display:none!important;
+  }
+  body.about-page > .mobile-drawer{
+    top:72px;
+    z-index:2000;
+  }
+  .mobile-about-exact{
+    display:block;
+    position:relative;
+    width:100%;
+    height:auto;
+    min-height:0;
+    margin:0;
+    padding:0;
+    overflow:visible;
+    line-height:0;
+    background:#050505;
+  }
+  .mobile-about-exact > img{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    margin:0;
+    object-fit:contain;
+    object-position:top center;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  .mobile-about-menu{
+    position:absolute;
+    top:15px;
+    right:14px;
+    width:62px;
+    height:62px;
+    padding:0;
+    border:0;
+    background:transparent;
+    opacity:0;
+    cursor:pointer;
+    z-index:2100;
+  }
+  body.about-page > .mobile-drawer.open{
+    display:grid;
+  }
+}
+
+/* Exact approved mobile Works artwork — full image, no cropping or zooming. */
+@media (max-width:760px){
+  body.works-page{
+    padding-top:0!important;
+    margin:0;
+    background:#050505;
+    overflow-x:hidden;
+  }
+  body.works-page > .mobile-header{
+    display:none!important;
+  }
+  body.works-page > .mobile-drawer{
+    top:72px;
+    z-index:2000;
+  }
+  .mobile-works-exact{
+    display:block;
+    position:relative;
+    width:100%;
+    height:auto;
+    min-height:0;
+    margin:0;
+    padding:0;
+    overflow:visible;
+    line-height:0;
+    background:#050505;
+  }
+  .mobile-works-exact > img{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    margin:0;
+    object-fit:contain;
+    object-position:top center;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  /* Hide the two narrow stray image slivers baked into the mobile Works artwork. */
+  .mobile-works-exact::before,
+  .mobile-works-exact::after{
+    content:"";
+    position:absolute;
+    left:2.1%;
+    width:2.5%;
+    background:#050505;
+    z-index:2;
+    pointer-events:none;
+  }
+  .mobile-works-exact::before{
+    top:42.6%;
+    height:16.7%;
+  }
+  .mobile-works-exact::after{
+    top:75.3%;
+    height:13.3%;
+  }
+  .mobile-works-menu{
+    position:absolute;
+    top:14px;
+    right:15px;
+    width:66px;
+    height:66px;
+    padding:0;
+    border:0;
+    background:transparent;
+    opacity:0;
+    cursor:pointer;
+    z-index:2100;
+  }
+  body.works-page > .mobile-drawer.open{
+    display:grid;
+  }
+}
+
+/* Exact approved mobile Services page. Desktop Services page remains unchanged. */
+@media (max-width:760px){
+  body.services-page{
+    padding-top:0!important;
+    background:#050505;
+  }
+  body.services-page > .mobile-header{
+    display:none!important;
+  }
+  body.services-page > .mobile-drawer{
+    top:76px;
+  }
+  .mobile-services-exact{
+    display:block;
+    position:relative;
+    width:100%;
+    height:auto;
+    min-height:0;
+    margin:0;
+    overflow:visible;
+    background:#050505;
+    line-height:0;
+  }
+  .mobile-services-exact > img{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+    object-position:top center;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  .mobile-services-menu{
+    position:absolute;
+    top:18px;
+    right:14px;
+    z-index:1001;
+    width:62px;
+    height:62px;
+    padding:0;
+    border:0;
+    background:transparent;
+    opacity:0;
+    cursor:pointer;
+  }
+  body.services-page > .mobile-drawer.open{
+    display:grid;
+  }
+}
+
+/* Mobile home: use the exact same logo artwork as the mobile About page. */
+.mobile-home-about-logo{display:block;width:100%;height:auto;background:#050505}
+@media (min-width:769px){.mobile-home-about-logo{display:none!important}}
+
+/* Mobile homepage clean render: one flattened artwork only, no logo/text overlays. */
+@media (max-width:760px){
+  body.home-page{padding:0!important;margin:0!important;background:#000!important;overflow-x:hidden!important}
+  body.home-page>.mobile-header{display:none!important}
+  body.home-page>.desktop-art{display:none!important}
+  body.home-page .mobile-home-exact{
+    display:block!important;
+    position:relative!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    line-height:0!important;
+    background:#000!important;
+  }
+  body.home-page .mobile-home-exact>img{
+    display:block!important;
+    position:static!important;
+    width:100%!important;
+    height:auto!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    object-fit:contain!important;
+    object-position:top center!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+  body.home-page .mobile-home-exact::before,
+  body.home-page .mobile-home-exact::after{content:none!important;display:none!important}
+  body.home-page .mobile-home-logo,
+  body.home-page .mobile-home-wordmark,
+  body.home-page .mobile-home-title,
+  body.home-page .mobile-home-subtitle,
+  body.home-page .mobile-home-motto,
+  body.home-page .home-mobile-caption,
+  body.home-page .mobile-home-about-logo{display:none!important}
+  body.home-page .mobile-image-menu{
+    position:absolute!important;
+    top:14px!important;
+    right:12px!important;
+    z-index:1001!important;
+    width:62px!important;
+    height:62px!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    color:transparent!important;
+    opacity:0!important;
+  }
+}
+
+/* 2026-07-31 final mobile homepage overlay fix: only one flattened artwork is rendered. */
+@media (max-width:760px){
+  body.home-page > *:not(.mobile-drawer):not(.mobile-home-exact):not(script){display:none!important}
+  body.home-page > .mobile-home-exact{display:block!important}
+  body.home-page .mobile-home-exact > *:not(img):not(.mobile-image-menu){display:none!important}
+  body.home-page .mobile-home-exact > img{display:block!important;width:100%!important;height:auto!important;position:static!important;filter:none!important;mix-blend-mode:normal!important}
+}
+
+/* Desktop navigation hotspots — precisely aligned to the visible menu text. */
+@media (min-width:761px){
+  .desktop-art > img{pointer-events:none}
+  .hotspot{
+    z-index:20;
+    height:5.2%!important;
+    top:1.15%!important;
+    border-radius:0;
+    transform:none!important;
+  }
+  /* Homepage artwork menu positions */
+  .home-nav.home{left:26.25%!important;width:4.75%!important}
+  .home-nav.services{left:36.55%!important;width:6.75%!important}
+  .home-nav.works{left:48.65%!important;width:5.75%!important}
+  .home-nav.about{left:59.75%!important;width:5.25%!important}
+  .home-nav.contact{left:69.45%!important;width:6.85%!important}
+
+  /* Services, Works and About artwork menu positions */
+  .inner-nav{top:1.75%!important;height:5.35%!important}
+  .inner-nav.home{left:28.85%!important;width:4.15%!important}
+  .inner-nav.services{left:36.95%!important;width:6.05%!important}
+  .inner-nav.works{left:45.95%!important;width:5.25%!important}
+  .inner-nav.about{left:54.55%!important;width:5.05%!important}
+  .inner-nav.contact{left:63.25%!important;width:6.05%!important}
+}
+
+/* Unified desktop navigation — one real header on every desktop page.
+   The navigation baked into the artwork is cropped out to prevent duplication. */
+.desktop-unified-header{display:none}
+@media (min-width:761px){
+  :root{--desktop-header-h:clamp(58px,4.56vw,78px)}
+  .desktop-unified-header{
+    display:flex;position:relative;z-index:100;
+    width:100%;height:var(--desktop-header-h);background:#000;
+    align-items:center;justify-content:center;line-height:normal
+  }
+
+  .desktop-header-logo{
+    position:absolute;left:clamp(18px,2.2vw,42px);top:50%;
+    transform:translateY(-50%);display:block;z-index:2;
+    width:clamp(112px,10.2vw,170px);max-height:72%;line-height:0
+  }
+  .desktop-header-logo img{display:block;width:100%;height:auto;max-height:calc(var(--desktop-header-h) * .68);object-fit:contain}
+  .desktop-unified-nav{
+    width:min(760px,58vw);height:100%;display:flex;align-items:center;
+    justify-content:space-between;margin:0 auto
+  }
+  .desktop-unified-nav a{
+    position:relative;display:flex;height:100%;align-items:center;
+    color:#fff;text-decoration:none;text-transform:uppercase;
+    font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:400;
+    letter-spacing:2px;white-space:nowrap;padding:0 .25em
+  }
+  .desktop-unified-nav a::after{
+    content:"";position:absolute;left:.25em;right:.25em;bottom:16%;
+    height:2px;background:#fff;transform:scaleX(0);transform-origin:center;
+    transition:transform .18s ease
+  }
+  .desktop-unified-nav a:hover::after,
+  .home-page .desktop-unified-nav [data-page="home"]::after,
+  .services-page .desktop-unified-nav [data-page="services"]::after,
+  .works-page .desktop-unified-nav [data-page="works"]::after,
+  .about-page .desktop-unified-nav [data-page="about"]::after{transform:scaleX(1)}
+
+  /* Remove the original image-based navigation strip. */
+  body.home-page .desktop-art,
+  body.services-page .desktop-art,
+  body.works-page .desktop-art,
+  body.about-page .desktop-art{overflow:hidden}
+  body.home-page .desktop-art>img,
+  body.services-page .desktop-art>img,
+  body.works-page .desktop-art>img,
+  body.about-page .desktop-art>img{
+    transform:translateY(calc(-1 * var(--desktop-header-h)));
+    margin-bottom:calc(-1 * var(--desktop-header-h));
+  }
+  .desktop-art .hotspot{display:none!important}
+}
+
+/* About desktop refinement: fill the viewport cleanly while preserving mobile. */
+@media (min-width:761px){
+  body.about-page .desktop-art{
+    width:100vw;
+    height:calc(100vh - var(--desktop-header-h));
+    overflow:hidden;
+    background:#000;
+  }
+  body.about-page .desktop-art>img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    transform:none;
+    margin-bottom:0;
+  }
+}
+
+/* Final About desktop repair: one header, full-width composition, no cropped headline. */
+@media (min-width:761px){
+  body.about-page .desktop-art{
+    width:100%;
+    height:auto;
+    min-height:0;
+    overflow:hidden;
+    background:#000;
+    line-height:0;
+  }
+  body.about-page .desktop-art>img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:none;
+    object-fit:contain;
+    object-position:center top;
+    transform:none!important;
+    margin:0!important;
+  }
+}
+
+
+/* Desktop-only non-clickable brand logos and bottom logo strips */
+@media (min-width:761px){
+  .desktop-header-logo,.desktop-contact-logo{cursor:default;pointer-events:none}
+  .desktop-bottom-logo{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;min-height:150px;padding:22px 20px;background:#050607;
+    box-sizing:border-box;line-height:0
+  }
+  .desktop-bottom-logo img{
+    display:block;width:clamp(230px,24vw,390px);max-height:112px;
+    height:auto;object-fit:contain
+  }
+  .desktop-bottom-logo--contact{min-height:0;padding:10px 20px 20px;background:transparent}
+}
+@media (max-width:760px){.desktop-bottom-logo{display:none!important}}
+
+/* Final desktop Works page artwork */
+@media (min-width:761px){
+  body.works-page{background:#050505}
+  body.works-page .desktop-art{width:100vw;min-height:100vh;background:#050505}
+  body.works-page .desktop-art>img{display:block;width:100%;height:auto}
+  body.works-page .inner-nav{top:0!important;height:10%!important}
+  body.works-page .inner-nav.home{left:30.1%;width:7.2%}
+  body.works-page .inner-nav.services{left:39.5%;width:9.2%}
+  body.works-page .inner-nav.works{left:51.7%;width:7.4%}
+  body.works-page .inner-nav.about{left:62.0%;width:7.2%}
+  body.works-page .inner-nav.contact{left:72.2%;width:8.5%}
+}
+
+/* Approved About desktop artwork: preserve exact composition beneath shared header. */
+@media (min-width:761px){
+  body.about-page .desktop-art{
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    background:#050607;
+    line-height:0;
+  }
+  body.about-page .desktop-art>img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:none;
+    object-fit:contain;
+    object-position:center top;
+    transform:none!important;
+    margin:0!important;
+  }
+  body.about-page > .desktop-bottom-logo{display:none!important}
+}
+
+/* 2026-08-01 desktop Works fit repair: shared header + complete artwork in one viewport. */
+@media (min-width:761px){
+  html,body.works-page{min-height:100%;background:#050505}
+  body.works-page{margin:0;overflow:hidden}
+  body.works-page .desktop-unified-header{flex:0 0 var(--desktop-header-h)}
+  body.works-page .desktop-art{
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    width:100vw!important;
+    height:calc(100vh - var(--desktop-header-h))!important;
+    min-height:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+    background:#050505;
+    line-height:0;
+  }
+  body.works-page .desktop-art>img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    transform:none!important;
+    margin:0!important;
+  }
+  body.works-page .desktop-art .hotspot{display:none!important}
+}
+
+/* 2026-08-01 desktop Services fit repair: keep the complete approved design visible in one viewport. */
+@media (min-width:761px){
+  html,body.services-page{min-height:100%;background:#050505}
+  body.services-page{margin:0;overflow:hidden}
+  body.services-page .desktop-unified-header{flex:0 0 var(--desktop-header-h)}
+  body.services-page .desktop-art{
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    width:100vw!important;
+    height:calc(100vh - var(--desktop-header-h))!important;
+    min-height:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+    background:#050505;
+    line-height:0;
+  }
+  body.services-page .desktop-art>img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    transform:none!important;
+    margin:0!important;
+  }
+  body.services-page .desktop-art .hotspot{display:none!important}
+  body.services-page > .desktop-bottom-logo{display:none!important}
+}
+
+/* 2026-08-01 corrected desktop Services page:
+   one shared header, no navigation baked into the artwork, and edge-to-edge viewport fit. */
+@media (min-width:761px){
+  html, body.services-page{
+    width:100%;
+    height:100%;
+    min-height:100%;
+    margin:0;
+    background:#050505;
+    overflow:hidden;
+  }
+  body.services-page .desktop-unified-header{
+    height:var(--desktop-header-h);
+    flex:0 0 var(--desktop-header-h);
+  }
+  body.services-page .desktop-art{
+    display:block!important;
+    position:relative;
+    width:100vw!important;
+    height:calc(100vh - var(--desktop-header-h))!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#050505;
+    line-height:0;
+  }
+  body.services-page .desktop-art>img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    transform:none!important;
+    object-fit:fill!important;
+    object-position:center center!important;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  body.services-page .desktop-art .hotspot,
+  body.services-page > .desktop-bottom-logo{
+    display:none!important;
+  }
+}
+\n
+/* Definitive desktop Services layout: one header and artwork locked to every remaining viewport pixel. */
+.services-desktop-stage{display:none}
+@media (min-width:761px){
+  html:has(body.services-page),
+  body.services-page{
+    width:100%!important;
+    height:100%!important;
+    min-height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#050505!important;
+  }
+  body.services-page{
+    display:grid!important;
+    grid-template-rows:var(--desktop-header-h) minmax(0,1fr)!important;
+    grid-template-columns:100%!important;
+  }
+  body.services-page > .desktop-unified-header{
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    height:var(--desktop-header-h)!important;
+    min-height:0!important;
+    margin:0!important;
+    grid-row:1!important;
+  }
+  body.services-page > .services-desktop-stage{
+    display:block!important;
+    position:relative!important;
+    grid-row:2!important;
+    width:100%!important;
+    min-width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    line-height:0!important;
+    background:#050505!important;
+  }
+  body.services-page > .services-desktop-stage > img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    min-width:100%!important;
+    max-width:none!important;
+    height:100%!important;
+    min-height:100%!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    transform:none!important;
+  }
+  body.services-page > .desktop-art,
+  body.services-page > .desktop-bottom-logo,
+  body.services-page > .mobile-header,
+  body.services-page > .mobile-drawer,
+  body.services-page > .mobile-only{
+    display:none!important;
+  }
+}
+@media (max-width:760px){
+  body.services-page > .services-desktop-stage{display:none!important}
+}
+
+
+/* Definitive desktop Works layout: match the full-screen Services treatment. */
+.works-desktop-stage{display:none}
+@media (min-width:761px){
+  html:has(body.works-page),
+  body.works-page{
+    width:100%!important;
+    height:100%!important;
+    min-height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#050505!important;
+  }
+  body.works-page{
+    display:grid!important;
+    grid-template-rows:var(--desktop-header-h) minmax(0,1fr)!important;
+    grid-template-columns:100%!important;
+  }
+  body.works-page > .desktop-unified-header{
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    height:var(--desktop-header-h)!important;
+    min-height:0!important;
+    margin:0!important;
+    grid-row:1!important;
+  }
+  body.works-page > .works-desktop-stage{
+    display:block!important;
+    position:relative!important;
+    grid-row:2!important;
+    width:100%!important;
+    min-width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    line-height:0!important;
+    background:#050505!important;
+  }
+  body.works-page > .works-desktop-stage > img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    min-width:100%!important;
+    max-width:none!important;
+    height:100%!important;
+    min-height:100%!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    transform:none!important;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  body.works-page > .desktop-art,
+  body.works-page > .desktop-bottom-logo,
+  body.works-page > .mobile-header,
+  body.works-page > .mobile-drawer,
+  body.works-page > .mobile-only{
+    display:none!important;
+  }
+}
+@media (max-width:760px){
+  body.works-page > .works-desktop-stage{display:none!important}
+}
+
+/* FINAL SERVICES DESKTOP VIEWPORT LOCK — 2026-08-01
+   Uses the approved Services artwork and fills every available desktop pixel. */
+@media screen and (min-width: 761px) {
+  html,
+  body.services-page {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #050505 !important;
+  }
+
+  body.services-page {
+    display: block !important;
+    position: relative !important;
+  }
+
+  body.services-page > .desktop-unified-header {
+    display: flex !important;
+    position: absolute !important;
+    z-index: 1000 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    height: var(--desktop-header-h) !important;
+    min-height: var(--desktop-header-h) !important;
+    margin: 0 !important;
+  }
+
+  body.services-page > .services-desktop-stage {
+    display: block !important;
+    position: absolute !important;
+    z-index: 1 !important;
+    top: var(--desktop-header-h) !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - var(--desktop-header-h)) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #050505 !important;
+  }
+
+  body.services-page > .services-desktop-stage > img {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - var(--desktop-header-h)) !important;
+    min-width: 100vw !important;
+    min-height: calc(100vh - var(--desktop-header-h)) !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    object-fit: fill !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+
+  body.services-page > .desktop-art,
+  body.services-page > .desktop-bottom-logo,
+  body.services-page > .mobile-header,
+  body.services-page > .mobile-drawer,
+  body.services-page > .mobile-only {
+    display: none !important;
+  }
+}
+
+
+/* FINAL WORKS DESKTOP VIEWPORT LOCK — matches the approved Services full-screen behavior. */
+@media screen and (min-width: 761px) {
+  html,
+  body.works-page {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #050505 !important;
+  }
+
+  body.works-page {
+    display: block !important;
+    position: relative !important;
+  }
+
+  body.works-page > .desktop-unified-header {
+    display: flex !important;
+    position: absolute !important;
+    z-index: 1000 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    height: var(--desktop-header-h) !important;
+    min-height: var(--desktop-header-h) !important;
+    margin: 0 !important;
+  }
+
+  body.works-page > .works-desktop-stage {
+    display: block !important;
+    position: absolute !important;
+    z-index: 1 !important;
+    top: var(--desktop-header-h) !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - var(--desktop-header-h)) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #050505 !important;
+    line-height: 0 !important;
+  }
+
+  body.works-page > .works-desktop-stage > img {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - var(--desktop-header-h)) !important;
+    min-width: 100vw !important;
+    min-height: calc(100vh - var(--desktop-header-h)) !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    object-fit: fill !important;
+    object-position: center center !important;
+    transform: none !important;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  body.works-page > .desktop-art,
+  body.works-page > .desktop-bottom-logo,
+  body.works-page > .mobile-header,
+  body.works-page > .mobile-drawer,
+  body.works-page > .mobile-only {
+    display: none !important;
+  }
+}
+
+
+/* 2026-08-01 exact desktop artwork lock for Home, Works, About and Contact. */
+.exact-desktop-page{display:none}
+@media screen and (min-width:761px){
+  html,body.home-page,body.works-page,body.about-page,body.contact-page-custom{
+    width:100vw!important;height:100vh!important;min-width:0!important;min-height:0!important;
+    margin:0!important;padding:0!important;overflow:hidden!important;background:#000!important;
+  }
+  body.home-page>.desktop-unified-header,
+  body.works-page>.desktop-unified-header,
+  body.about-page>.desktop-unified-header{display:none!important}
+
+  body.home-page>.desktop-art,
+  body.works-page>.works-desktop-stage,
+  body.about-page>.desktop-art,
+  body.contact-page-custom>.contact-desktop-exact{
+    display:block!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
+    margin:0!important;padding:0!important;overflow:hidden!important;line-height:0!important;background:#000!important;
+  }
+  body.home-page>.desktop-art>img,
+  body.works-page>.works-desktop-stage>img,
+  body.about-page>.desktop-art>img,
+  body.contact-page-custom>.contact-desktop-exact>img{
+    display:block!important;position:absolute!important;inset:0!important;width:100vw!important;height:100vh!important;
+    min-width:100vw!important;min-height:100vh!important;max-width:none!important;max-height:none!important;
+    margin:0!important;padding:0!important;border:0!important;object-fit:fill!important;object-position:center!important;
+    transform:none!important;pointer-events:none!important;user-select:none!important;-webkit-user-drag:none!important;
+  }
+  body.home-page>.mobile-header,body.home-page>.mobile-drawer,body.home-page>.mobile-only,
+  body.works-page>.mobile-header,body.works-page>.mobile-drawer,body.works-page>.mobile-only,
+  body.about-page>.mobile-header,body.about-page>.mobile-drawer,body.about-page>.mobile-only{display:none!important}
+
+  body.contact-page-custom>.site-header,
+  body.contact-page-custom>.contact-main,
+  body.contact-page-custom>.contact-footer{display:none!important}
+
+  .exact-nav{position:absolute!important;z-index:20!important;top:1.7%!important;height:7.5%!important;color:transparent!important;text-indent:-9999px!important;overflow:hidden!important;display:block!important}
+  .exact-nav.home{left:28.5%!important;width:10%!important}
+  .exact-nav.services{left:39.5%!important;width:11%!important}
+  .exact-nav.works{left:51.5%!important;width:10%!important}
+  .exact-nav.about{left:62.2%!important;width:9.5%!important}
+  .exact-nav.contact{left:72.5%!important;width:11%!important}
+
+  body.home-page .home-nav{top:0!important;height:9%!important}
+  body.home-page .home-nav.home{left:25.5%!important;width:8%!important}
+  body.home-page .home-nav.services{left:35.5%!important;width:9.5%!important}
+  body.home-page .home-nav.works{left:47.5%!important;width:8%!important}
+  body.home-page .home-nav.about{left:58.5%!important;width:8%!important}
+  body.home-page .home-nav.contact{left:69.5%!important;width:9.5%!important}
+
+  body.about-page .inner-nav{top:0!important;height:9%!important}
+}
+@media screen and (max-width:760px){
+  body.contact-page-custom>.contact-desktop-exact{display:none!important}
+}
+
+/* HOMEPAGE REPAIR — restore the approved homepage as one exact desktop screen. */
+.home-desktop-stage{display:none}
+@media screen and (min-width:761px){
+  html,
+  body.home-page{
+    width:100%!important;
+    height:100%!important;
+    min-width:0!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#000!important;
+  }
+  body.home-page{
+    position:relative!important;
+    display:block!important;
+  }
+  body.home-page>.home-desktop-stage{
+    display:block!important;
+    position:fixed!important;
+    inset:0!important;
+    z-index:1!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    line-height:0!important;
+    background:#000!important;
+  }
+  body.home-page>.home-desktop-stage>img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:100%!important;
+    min-height:100%!important;
+    max-width:none!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    object-fit:fill!important;
+    object-position:center center!important;
+    transform:none!important;
+    pointer-events:none!important;
+    user-select:none!important;
+    -webkit-user-drag:none!important;
+  }
+  body.home-page>.mobile-header,
+  body.home-page>.mobile-drawer,
+  body.home-page>.mobile-only{
+    display:none!important;
+  }
+  body.home-page .home-nav{
+    display:block!important;
+    position:absolute!important;
+    z-index:20!important;
+    top:0!important;
+    height:9%!important;
+    color:transparent!important;
+    text-indent:-9999px!important;
+    overflow:hidden!important;
+    pointer-events:auto!important;
+  }
+  body.home-page .home-nav.home{left:25.5%!important;width:8%!important}
+  body.home-page .home-nav.services{left:35.5%!important;width:9.5%!important}
+  body.home-page .home-nav.works{left:47.5%!important;width:8%!important}
+  body.home-page .home-nav.about{left:58.5%!important;width:8%!important}
+  body.home-page .home-nav.contact{left:69.5%!important;width:9.5%!important}
+}
+@media screen and (max-width:760px){
+  body.home-page>.home-desktop-stage{display:none!important}
+}
+
+
+/* Final shared desktop corner logo — identical asset and size on every page. */
+.shared-corner-logo{display:none}
+@media (min-width:761px){
+  .shared-corner-logo{
+    display:block!important;position:fixed;z-index:10000;
+    left:clamp(28px,2.55vw,42px);top:clamp(8px,.75vw,13px);
+    width:clamp(215px,18.23vw,300px);height:auto;line-height:0;
+    text-decoration:none;
+  }
+  .shared-corner-logo::before{
+    content:"";position:absolute;z-index:-1;
+    left:clamp(-10px,-.65vw,-4px);right:clamp(-10px,-.65vw,-4px);
+    top:clamp(-8px,-.5vw,-3px);bottom:clamp(-8px,-.5vw,-3px);
+    background:#000;
+  }
+  .shared-corner-logo img{display:block;width:100%;height:auto;max-width:none;object-fit:contain}
+  .desktop-header-logo.shared-logo-host{
+    left:clamp(28px,2.55vw,42px)!important;
+    width:clamp(215px,18.23vw,300px)!important;
+    max-height:none!important;
+  }
+  .desktop-header-logo.shared-logo-host img{max-height:none!important;width:100%!important;height:auto!important}
+}
+
+/* FINAL HEADER LOGO + ABOUT PAGE REPAIR — 2026-08-01
+   Keep every upper-left logo completely inside the black desktop header,
+   and restore the full black top section on the About page. */
+@media screen and (min-width:761px){
+  :root{--desktop-header-h:clamp(68px,6.1vw,94px)}
+
+  /* Every corner/header logo uses the same contained dimensions. */
+  .shared-corner-logo{
+    left:clamp(18px,2.1vw,34px)!important;
+    top:0!important;
+    width:clamp(150px,17vw,260px)!important;
+    height:var(--desktop-header-h)!important;
+    padding:clamp(7px,.65vw,11px) 0!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    overflow:hidden!important;
+    background:transparent!important;
+  }
+  .shared-corner-logo::before{display:none!important}
+  .shared-corner-logo img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    max-height:100%!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+
+  .desktop-header-logo,
+  .desktop-header-logo.shared-logo-host{
+    left:clamp(18px,2.1vw,34px)!important;
+    top:0!important;
+    transform:none!important;
+    width:clamp(150px,17vw,260px)!important;
+    height:var(--desktop-header-h)!important;
+    max-height:var(--desktop-header-h)!important;
+    padding:clamp(7px,.65vw,11px) 0!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    overflow:hidden!important;
+  }
+  .desktop-header-logo img,
+  .desktop-header-logo.shared-logo-host img{
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    max-height:100%!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+
+  /* About gets the same real black header as Services, including its full top section. */
+  html,body.about-page{
+    width:100%!important;
+    height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#000!important;
+  }
+  body.about-page{
+    display:grid!important;
+    grid-template-rows:var(--desktop-header-h) minmax(0,1fr)!important;
+    grid-template-columns:100%!important;
+  }
+  body.about-page>.shared-corner-logo{display:none!important}
+  body.about-page>.desktop-unified-header{
+    display:flex!important;
+    position:relative!important;
+    inset:auto!important;
+    grid-row:1!important;
+    width:100%!important;
+    height:var(--desktop-header-h)!important;
+    min-height:var(--desktop-header-h)!important;
+    background:#000!important;
+    z-index:1000!important;
+  }
+  body.about-page>.desktop-art{
+    display:block!important;
+    position:relative!important;
+    inset:auto!important;
+    grid-row:2!important;
+    width:100vw!important;
+    height:calc(100vh - var(--desktop-header-h))!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#000!important;
+    line-height:0!important;
+  }
+  body.about-page>.desktop-art>img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:100%!important;
+    min-height:100%!important;
+    max-width:none!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    transform:none!important;
+  }
+  body.about-page>.desktop-art .hotspot{display:none!important}
+  body.about-page>.mobile-header,
+  body.about-page>.mobile-drawer,
+  body.about-page>.mobile-only{display:none!important}
+}
+
+
+/* About desktop exact approved artwork — 2026-08-03. About page only. */
+@media screen and (min-width:761px){
+  html, body.about-page{
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#000!important;
+    display:block!important;
+  }
+  body.about-page>.shared-corner-logo,
+  body.about-page>.desktop-unified-header,
+  body.about-page>.mobile-header,
+  body.about-page>.mobile-drawer,
+  body.about-page>.mobile-only{
+    display:none!important;
+  }
+  body.about-page>.desktop-art.about-exact-stage{
+    display:block!important;
+    position:fixed!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    line-height:0!important;
+    background:#000!important;
+  }
+  body.about-page>.desktop-art.about-exact-stage>img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    min-width:100vw!important;
+    min-height:100vh!important;
+    max-width:none!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    transform:none!important;
+    pointer-events:none!important;
+    user-select:none!important;
+    -webkit-user-drag:none!important;
+  }
+  body.about-page>.desktop-art.about-exact-stage .inner-nav{
+    display:block!important;
+    position:absolute!important;
+    z-index:50!important;
+    top:0!important;
+    height:9.2%!important;
+    color:transparent!important;
+    text-indent:-9999px!important;
+    overflow:hidden!important;
+  }
+  body.about-page>.desktop-art.about-exact-stage .inner-nav.home{left:28.2%!important;width:8.8%!important}
+  body.about-page>.desktop-art.about-exact-stage .inner-nav.services{left:38.3%!important;width:10.5%!important}
+  body.about-page>.desktop-art.about-exact-stage .inner-nav.works{left:50.1%!important;width:8.8%!important}
+  body.about-page>.desktop-art.about-exact-stage .inner-nav.about{left:60.8%!important;width:8.6%!important}
+  body.about-page>.desktop-art.about-exact-stage .inner-nav.contact{left:70.8%!important;width:10.6%!important}
+}
+
+
+/* FINAL DESKTOP HEADER STANDARDIZATION — same font, size, metallic finish and logo dimensions. */
+@media screen and (min-width:761px){
+  :root{--bge-header-height:70px;--bge-header-logo-width:210px}
+
+  body.services-page>.desktop-unified-header,
+  body.works-page>.desktop-unified-header,
+  body.about-page>.desktop-unified-header{
+    display:flex!important;
+    position:fixed!important;
+    inset:0 0 auto 0!important;
+    width:100vw!important;
+    height:var(--bge-header-height)!important;
+    min-height:var(--bge-header-height)!important;
+    background:#050505!important;
+    align-items:center!important;
+    justify-content:center!important;
+    z-index:100000!important;
+    line-height:normal!important;
+  }
+
+  body.services-page .desktop-header-logo,
+  body.works-page .desktop-header-logo,
+  body.about-page .desktop-header-logo{
+    position:absolute!important;
+    left:28px!important;
+    top:7px!important;
+    transform:none!important;
+    width:var(--bge-header-logo-width)!important;
+    height:56px!important;
+    max-height:56px!important;
+    padding:0!important;
+    display:block!important;
+    overflow:hidden!important;
+    pointer-events:none!important;
+    user-select:none!important;
+  }
+
+  body.services-page .desktop-header-logo img,
+  body.works-page .desktop-header-logo img,
+  body.about-page .desktop-header-logo img{
+    display:block!important;
+    width:100%!important;
+    height:56px!important;
+    max-width:none!important;
+    max-height:56px!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+
+  body.services-page .desktop-unified-nav,
+  body.works-page .desktop-unified-nav,
+  body.about-page .desktop-unified-nav{
+    display:flex!important;
+    width:auto!important;
+    height:70px!important;
+    margin:0!important;
+    gap:88px!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  body.services-page .desktop-unified-nav a,
+  body.works-page .desktop-unified-nav a,
+  body.about-page .desktop-unified-nav a{
+    position:relative!important;
+    display:flex!important;
+    align-items:center!important;
+    height:70px!important;
+    padding:0!important;
+    text-decoration:none!important;
+    text-transform:uppercase!important;
+    font-family:"Arial Narrow",Arial,Helvetica,sans-serif!important;
+    font-size:21px!important;
+    font-weight:500!important;
+    line-height:70px!important;
+    letter-spacing:.08em!important;
+    white-space:nowrap!important;
+    color:#d9d9d9!important;
+    background:linear-gradient(180deg,#ffffff 0%,#d5d5d5 35%,#858585 52%,#f3f3f3 72%,#b8b8b8 100%)!important;
+    -webkit-background-clip:text!important;
+    background-clip:text!important;
+    -webkit-text-fill-color:transparent!important;
+    text-shadow:0 1px 1px rgba(255,255,255,.20),0 2px 4px rgba(0,0,0,.65)!important;
+  }
+
+  body.services-page .desktop-unified-nav a::after,
+  body.works-page .desktop-unified-nav a::after,
+  body.about-page .desktop-unified-nav a::after{
+    content:""!important;
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    bottom:12px!important;
+    height:2px!important;
+    background:linear-gradient(90deg,#777,#fff,#777)!important;
+    transform:scaleX(0)!important;
+  }
+
+  body.services-page .desktop-unified-nav [data-page="services"]::after,
+  body.works-page .desktop-unified-nav [data-page="works"]::after,
+  body.about-page .desktop-unified-nav [data-page="about"]::after,
+  body.services-page .desktop-unified-nav a:hover::after,
+  body.works-page .desktop-unified-nav a:hover::after,
+  body.about-page .desktop-unified-nav a:hover::after{
+    transform:scaleX(1)!important;
+  }
+
+  /* Eliminate any older duplicate corner logo. */
+  body.services-page>.shared-corner-logo,
+  body.works-page>.shared-corner-logo,
+  body.about-page>.shared-corner-logo{display:none!important}
+}
+
+
+/* CONTACT-PAGE HEADER MASTER — desktop only */
+.desktop-standard-header{display:none}
+@media (min-width:761px){
+  .desktop-standard-header{
+    display:flex;position:fixed;inset:0 0 auto 0;z-index:100000;
+    width:100vw;height:70px;background:#050505;
+    align-items:center;justify-content:center;
+  }
+  .desktop-standard-logo{
+    position:absolute;left:28px;top:7px;width:210px;height:56px;
+    overflow:hidden;pointer-events:none;user-select:none;
+  }
+  .desktop-standard-logo img{
+    display:block;width:100%;height:56px;object-fit:contain;object-position:left center;
+  }
+  .desktop-standard-nav{display:flex;align-items:center;justify-content:center;gap:88px;height:70px}
+  .desktop-standard-nav a{
+    position:relative;display:flex;align-items:center;height:70px;
+    color:#d9d9d9;text-decoration:none;text-transform:uppercase;
+    font-family:"Arial Narrow",Arial,Helvetica,sans-serif;
+    font-size:21px;font-weight:500;line-height:70px;letter-spacing:.08em;white-space:nowrap;
+    background:linear-gradient(180deg,#ffffff 0%,#d5d5d5 35%,#858585 52%,#f3f3f3 72%,#b8b8b8 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    text-shadow:0 1px 1px rgba(255,255,255,.20),0 2px 4px rgba(0,0,0,.65);
+  }
+  .desktop-standard-nav a::after{
+    content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;
+    background:linear-gradient(90deg,#777,#fff,#777);transform:scaleX(0);
+  }
+  .desktop-standard-nav a:hover::after,
+  .desktop-standard-nav a.active::after{transform:scaleX(1)}
+}
+
+
+/* MOBILE HEADER LOGO STANDARDIZATION — Contact page is the reference.
+   Mobile only. Desktop styles remain unchanged. */
+@media (max-width: 760px) {
+  body.services-page > .mobile-header,
+  body.works-page > .mobile-header,
+  body.about-page > .mobile-header {
+    display: flex !important;
+    height: 60px !important;
+    padding: 0 16px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #000 !important;
+  }
+
+  body.services-page .mobile-logo-home,
+  body.works-page .mobile-logo-home,
+  body.about-page .mobile-logo-home {
+    display: block !important;
+    width: min(48vw, 330px) !important;
+    height: auto !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.services-page .mobile-logo-home img,
+  body.works-page .mobile-logo-home img,
+  body.about-page .mobile-logo-home img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  body.services-page .mobile-brand,
+  body.works-page .mobile-brand,
+  body.about-page .mobile-brand {
+    display: none !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE FIXED HEADER PATCH — 2026-08-07
+   Keeps the B.G.E. Aerials mobile header locked at the top
+   while the page content scrolls underneath it.
+   Desktop layout is not affected.
+   ========================================================= */
+@media (max-width: 760px) {
+  :root {
+    --bge-mobile-header-height: 92px;
+  }
+
+  /* Services / Works / About shared mobile header */
+  body.services-page > .mobile-header,
+  body.works-page > .mobile-header,
+  body.about-page > .mobile-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: var(--bge-mobile-header-height) !important;
+    z-index: 10000 !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  /* Prevent fixed header from covering the beginning of page content. */
+  body.services-page,
+  body.works-page,
+  body.about-page {
+    padding-top: var(--bge-mobile-header-height) !important;
+  }
+
+  /* Keep mobile menu above page content and beneath/with header as appropriate. */
+  body.services-page > .mobile-drawer,
+  body.works-page > .mobile-drawer,
+  body.about-page > .mobile-drawer {
+    position: fixed !important;
+    z-index: 9999 !important;
+    top: var(--bge-mobile-header-height) !important;
+  }
+}
+
+/* 2026-08-07 — Unified mobile hamburger menu to match approved homepage reference. Desktop untouched. */
+@media (max-width:760px){
+  body > .mobile-drawer{
+    position:fixed!important;
+    left:0!important;right:0!important;top:92px!important;bottom:0!important;
+    width:100%!important;height:auto!important;
+    padding:50px 24px 30px!important;
+    margin:0!important;
+    background:rgba(0,0,0,.90)!important;
+    border:0!important;
+    z-index:2000!important;
+    box-shadow:none!important;
+    align-content:start!important;
+    justify-items:center!important;
+    gap:34px!important;
+  }
+  body > .mobile-drawer.open{display:grid!important}
+  body > .mobile-drawer a{
+    display:block!important;
+    width:auto!important;
+    padding:0!important;
+    margin:0!important;
+    border:0!important;
+    color:#fff!important;
+    text-decoration:none!important;
+    text-transform:uppercase!important;
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:22px!important;
+    font-weight:700!important;
+    line-height:1.35!important;
+    letter-spacing:.12em!important;
+    text-align:center!important;
+  }
+  body > .mobile-drawer a.active{font-weight:700!important}
+}
+
+/* 2026-08-07 — FINAL mobile hamburger icon standardization.
+   Makes Services / Works / About use the exact same three-bar hamburger treatment
+   as the approved Home / Contact mobile header. Desktop is untouched. */
+@media (max-width:760px){
+  body.services-page .menu-toggle,
+  body.works-page .menu-toggle,
+  body.about-page .menu-toggle{
+    position:relative!important;
+    flex:0 0 54px!important;
+    width:54px!important;
+    height:54px!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    color:transparent!important;
+    font-size:0!important;
+    line-height:0!important;
+    cursor:pointer!important;
+    overflow:visible!important;
+  }
+  body.services-page .menu-toggle::before,
+  body.services-page .menu-toggle::after,
+  body.works-page .menu-toggle::before,
+  body.works-page .menu-toggle::after,
+  body.about-page .menu-toggle::before,
+  body.about-page .menu-toggle::after{
+    content:""!important;
+    position:absolute!important;
+    left:7px!important;
+    right:7px!important;
+    height:5px!important;
+    border-radius:4px!important;
+    background:#f4f4f4!important;
+    box-shadow:0 1px 3px rgba(255,255,255,.25)!important;
+  }
+  body.services-page .menu-toggle::before,
+  body.works-page .menu-toggle::before,
+  body.about-page .menu-toggle::before{top:13px!important;box-shadow:0 12px 0 #f4f4f4,0 1px 3px rgba(255,255,255,.25)!important;}
+  body.services-page .menu-toggle::after,
+  body.works-page .menu-toggle::after,
+  body.about-page .menu-toggle::after{top:37px!important;}
+}
+
+/* 2026-08-10 — Mobile About: true one-screen / no-scroll layout. Desktop untouched. */
+@media (max-width:760px){
+  html{overflow-x:hidden!important;}
+  body.about-page{
+    height:100vh!important;
+    height:100svh!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    overflow:hidden!important;
+    padding-top:var(--bge-mobile-header-height,92px)!important;
+    box-sizing:border-box!important;
+    background:#050505!important;
+  }
+  body.about-page > .mobile-about-exact{
+    display:flex!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+    width:100%!important;
+    height:calc(100dvh - var(--bge-mobile-header-height,92px))!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#050505!important;
+  }
+  body.about-page > .mobile-about-exact > img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    max-height:100%!important;
+    object-fit:contain!important;
+    object-position:top center!important;
+    margin:0!important;
+  }
+  body.about-page .mobile-about-menu{display:none!important;}
+}
+
+/* 2026-08-10 — FINAL MOBILE ABOUT VIEWPORT LOCK.
+   About page only. Locks the page to the visible phone viewport so it cannot
+   scroll, while preserving the fixed 92px mobile header and menu drawer. */
+@media screen and (max-width:760px){
+  html:has(body.about-page){
+    width:100%!important;
+    height:100%!important;
+    min-height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+  }
+
+  body.about-page{
+    position:fixed!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    max-height:100dvh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+    background:#050505!important;
+  }
+
+  body.about-page > .mobile-header{
+    display:flex!important;
+    position:absolute!important;
+    top:0!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    height:var(--bge-mobile-header-height,92px)!important;
+    min-height:var(--bge-mobile-header-height,92px)!important;
+    max-height:var(--bge-mobile-header-height,92px)!important;
+    z-index:10000!important;
+  }
+
+  body.about-page > .mobile-about-exact{
+    display:block!important;
+    position:absolute!important;
+    top:var(--bge-mobile-header-height,92px)!important;
+    right:0!important;
+    bottom:0!important;
+    left:0!important;
+    width:100vw!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    line-height:0!important;
+    background:#050505!important;
+  }
+
+  body.about-page > .mobile-about-exact > img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:100%!important;
+    min-height:100%!important;
+    max-width:none!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    user-select:none!important;
+    -webkit-user-drag:none!important;
+    pointer-events:none!important;
+  }
+
+  body.about-page > .mobile-drawer{
+    position:absolute!important;
+    top:var(--bge-mobile-header-height,92px)!important;
+    bottom:0!important;
+    max-height:calc(100dvh - var(--bge-mobile-header-height,92px))!important;
+    overflow:hidden!important;
+  }
+
+  body.about-page .mobile-about-menu{display:none!important;}
+}
+
+/* TABLET-ONLY NAV CLEANUP — remove active/hover underline without changing phone or desktop. */
+@media screen and (min-width:761px) and (max-width:1366px) and (hover:none),
+       screen and (min-width:761px) and (max-width:1366px) and (pointer:coarse){
+  body.about-page .desktop-unified-nav a::after,
+  body.about-page .desktop-unified-nav [data-page="about"]::after,
+  body.about-page .desktop-unified-nav a:hover::after{
+    content:none!important;
+    display:none!important;
+    transform:scaleX(0)!important;
+  }
+}
+
+/* =========================================================
+   2026-08-10 — TRUE iPAD/TABLET OVERRIDES
+   Safari/iPad only, 761px–1366px. Phone + desktop untouched.
+   ========================================================= */
+@supports (-webkit-touch-callout: none) {
+  @media screen and (min-width:761px) and (max-width:1366px) {
+    /* About: remove the active-page underline on iPad. */
+    body.about-page .desktop-standard-nav a::after,
+    body.about-page .desktop-standard-nav a.active::after,
+    body.about-page .desktop-standard-nav a:hover::after {
+      content:none!important;
+      display:none!important;
+      transform:none!important;
+      background:none!important;
+    }
+  }
+}
+
+/* =========================================================
+   2026-08-13 — ALL TABLETS: SERVICES FULL-VIEW FIT
+   Keeps the approved desktop artwork intact but scales the
+   complete Services panel into the visible tablet viewport.
+   No socials/location are present in this artwork.
+   Phone <=760px and full desktop >1366px remain untouched.
+   ========================================================= */
+@media screen and (min-width:761px) and (max-width:1366px) and (hover:none),
+       screen and (min-width:761px) and (max-width:1366px) and (pointer:coarse){
+  html:has(body.services-page),
+  body.services-page{
+    width:100%!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#050505!important;
+  }
+
+  body.services-page{
+    display:grid!important;
+    grid-template-rows:70px minmax(0,1fr)!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  body.services-page > .desktop-standard-header{
+    display:flex!important;
+    position:relative!important;
+    inset:auto!important;
+    grid-row:1!important;
+    width:100%!important;
+    height:70px!important;
+    min-height:70px!important;
+    margin:0!important;
+    z-index:1000!important;
+  }
+
+  body.services-page > .services-desktop-stage{
+    display:block!important;
+    position:relative!important;
+    inset:auto!important;
+    grid-row:2!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:0!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#050505!important;
+    line-height:0!important;
+  }
+
+  body.services-page > .services-desktop-stage > img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:0!important;
+    min-height:0!important;
+    max-width:100%!important;
+    max-height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    object-fit:fill!important;
+    object-position:center center!important;
+    transform:none!important;
+  }
+
+  body.services-page > .mobile-header,
+  body.services-page > .mobile-drawer,
+  body.services-page > .mobile-only{
+    display:none!important;
+  }
+}
+
+/* iPad Safari safety net (desktop-class UA can report hover differently). */
+@supports (-webkit-touch-callout:none){
+  @media screen and (min-width:761px) and (max-width:1366px){
+    html:has(body.services-page),
+    body.services-page{
+      height:100dvh!important;
+      min-height:100dvh!important;
+      overflow:hidden!important;
+    }
+    body.services-page{
+      display:grid!important;
+      grid-template-rows:70px minmax(0,1fr)!important;
+    }
+    body.services-page > .desktop-standard-header{
+      display:flex!important;
+      position:relative!important;
+      inset:auto!important;
+      grid-row:1!important;
+      width:100%!important;
+      height:70px!important;
+      min-height:70px!important;
+    }
+    body.services-page > .services-desktop-stage{
+      display:block!important;
+      position:relative!important;
+      inset:auto!important;
+      grid-row:2!important;
+      width:100%!important;
+      height:100%!important;
+      min-height:0!important;
+      overflow:hidden!important;
+    }
+    body.services-page > .services-desktop-stage > img{
+      position:absolute!important;
+      inset:0!important;
+      width:100%!important;
+      height:100%!important;
+      min-width:0!important;
+      min-height:0!important;
+      max-width:100%!important;
+      max-height:100%!important;
+      object-fit:fill!important;
+      object-position:center!important;
+    }
+  }
+}
+
+
+/* =========================================================
+   2026-08-14 — SERVICES TABLET ORIENTATION LAYOUTS ONLY
+   Services page only. Phone <=760px and desktop >1366px are
+   unchanged. Landscape keeps the approved four-column look.
+   Portrait stacks the same four services so all copy stays
+   readable and visible without squeezing the columns.
+   ========================================================= */
+.tablet-services-stage{display:none;}
+
+@media screen and (min-width:761px) and (max-width:1366px) and (orientation:landscape){
+  body.services-page{
+    display:grid!important;
+    grid-template-rows:70px minmax(0,1fr)!important;
+    width:100%!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    overflow:hidden!important;
+    background:#050505!important;
+  }
+
+  body.services-page > .desktop-standard-header{
+    display:flex!important;
+    position:relative!important;
+    grid-row:1!important;
+    height:70px!important;
+    min-height:70px!important;
+    width:100%!important;
+  }
+
+  body.services-page > .services-desktop-stage,
+  body.services-page > .mobile-header,
+  body.services-page > .mobile-drawer,
+  body.services-page > .mobile-only{display:none!important;}
+
+  body.services-page > .tablet-services-stage{
+    display:block!important;
+    grid-row:2!important;
+    position:relative!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    overflow:hidden!important;
+    background:#050505!important;
+  }
+
+  body.services-page .tablet-services-landscape{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    overflow:hidden!important;
+    line-height:0!important;
+  }
+
+  body.services-page .tablet-services-landscape > img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    border:0!important;
+    margin:0!important;
+  }
+
+  body.services-page .tablet-services-portrait{display:none!important;}
+}
+
+@media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait){
+  html:has(body.services-page),
+  body.services-page{
+    width:100%!important;
+    min-height:100dvh!important;
+    margin:0!important;
+    padding:0!important;
+    background:#050505!important;
+  }
+
+  body.services-page{
+    display:block!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+  }
+
+  body.services-page > .desktop-standard-header{
+    display:flex!important;
+    position:relative!important;
+    width:100%!important;
+    height:76px!important;
+    min-height:76px!important;
+    z-index:1000!important;
+  }
+
+  body.services-page > .services-desktop-stage,
+  body.services-page > .mobile-header,
+  body.services-page > .mobile-drawer,
+  body.services-page > .mobile-only{display:none!important;}
+
+  body.services-page > .tablet-services-stage{
+    display:block!important;
+    position:relative!important;
+    width:100%!important;
+    min-height:calc(100dvh - 76px)!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    background:#050505!important;
+  }
+
+  body.services-page .tablet-services-landscape{display:none!important;}
+
+  body.services-page .tablet-services-portrait{
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0 0 22px!important;
+    background:#050505!important;
+  }
+
+  body.services-page .tablet-services-portrait-hero{
+    width:100%!important;
+    aspect-ratio:1536 / 516!important;
+    overflow:hidden!important;
+    background:#eee8de!important;
+    line-height:0!important;
+  }
+
+  body.services-page .tablet-services-portrait-hero > img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    margin:0!important;
+    border:0!important;
+  }
+
+  body.services-page .tablet-services-list{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+    width:calc(100% - 36px)!important;
+    margin:16px auto 0!important;
+    padding:0!important;
+  }
+
+  body.services-page .tablet-service-card{
+    display:grid!important;
+    grid-template-columns:180px minmax(0,1fr)!important;
+    align-items:center!important;
+    min-height:126px!important;
+    padding:12px 18px!important;
+    background:#070707!important;
+    border:1px solid rgba(255,255,255,.14)!important;
+    box-sizing:border-box!important;
+  }
+
+  body.services-page .tablet-service-icon{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:100%!important;
+    padding-right:18px!important;
+    border-right:1px solid rgba(255,255,255,.25)!important;
+    box-sizing:border-box!important;
+  }
+
+  body.services-page .tablet-service-icon img{
+    display:block!important;
+    width:128px!important;
+    height:76px!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    margin:0!important;
+  }
+
+  body.services-page .tablet-service-copy{
+    padding-left:30px!important;
+    color:#fff!important;
+  }
+
+  body.services-page .tablet-service-copy h2{
+    margin:0 0 10px!important;
+    color:#fff!important;
+    font-family:Arial, Helvetica, sans-serif!important;
+    font-size:clamp(18px,2.35vw,27px)!important;
+    line-height:1.05!important;
+    font-weight:700!important;
+    letter-spacing:.01em!important;
+  }
+
+  body.services-page .tablet-service-copy p{
+    margin:0!important;
+    max-width:650px!important;
+    color:#f1f1f1!important;
+    font-family:Arial, Helvetica, sans-serif!important;
+    font-size:clamp(16px,2vw,22px)!important;
+    line-height:1.35!important;
+    font-weight:400!important;
+  }
+}
+
+@supports (-webkit-touch-callout:none){
+  @media screen and (min-width:761px) and (max-width:1366px) and (orientation:landscape){
+    body.services-page > .services-desktop-stage{display:none!important;}
+    body.services-page > .tablet-services-stage{display:block!important;}
+    body.services-page .tablet-services-landscape{display:block!important;}
+    body.services-page .tablet-services-portrait{display:none!important;}
+  }
+
+  @media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait){
+    body.services-page > .services-desktop-stage{display:none!important;}
+    body.services-page > .tablet-services-stage{display:block!important;}
+    body.services-page .tablet-services-landscape{display:none!important;}
+    body.services-page .tablet-services-portrait{display:block!important;}
+  }
+}
+
+/* =========================================================
+   2026-08-18 — FINAL APPROVED ABOUT DESKTOP ARTWORK
+   Uses the complete approved image exactly as supplied.
+   The artwork contains its own header, so the live duplicate
+   desktop header is hidden on About only. Other pages, phone,
+   and mobile About presentation remain unchanged.
+   ========================================================= */
+@media screen and (min-width:761px){
+  body.about-page > .desktop-standard-header{
+    display:none!important;
+  }
+
+  body.about-page > .desktop-art.about-exact-stage{
+    display:block!important;
+    position:fixed!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#000!important;
+  }
+
+  body.about-page > .desktop-art.about-exact-stage > img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    min-width:100vw!important;
+    min-height:100vh!important;
+    max-width:none!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    transform:none!important;
+  }
+
+  /* Click targets aligned to the navigation baked into the approved artwork. */
+  body.about-page > .desktop-art.about-exact-stage .inner-nav{
+    display:block!important;
+    position:absolute!important;
+    z-index:100!important;
+    top:0!important;
+    height:10%!important;
+  }
+  body.about-page > .desktop-art.about-exact-stage .inner-nav.home{left:35.0%!important;width:7.0%!important}
+  body.about-page > .desktop-art.about-exact-stage .inner-nav.services{left:43.3%!important;width:9.0%!important}
+  body.about-page > .desktop-art.about-exact-stage .inner-nav.works{left:53.4%!important;width:7.5%!important}
+  body.about-page > .desktop-art.about-exact-stage .inner-nav.about{left:63.3%!important;width:8.2%!important}
+  body.about-page > .desktop-art.about-exact-stage .inner-nav.contact{left:73.0%!important;width:9.5%!important}
+}
+
+/* =========================================================
+   2026-08-18 — ABOUT HEADER MATCH
+   Use the exact same live desktop header as the other pages.
+   The desktop About artwork is the approved composition with
+   only its baked-in header removed. Mobile remains unchanged.
+   ========================================================= */
+@media screen and (min-width:761px){
+  body.about-page > .desktop-standard-header{
+    display:flex!important;
+    position:fixed!important;
+    inset:0 0 auto 0!important;
+    z-index:100000!important;
+    width:100vw!important;
+    height:70px!important;
+    background:#050505!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  body.about-page > .desktop-art.about-exact-stage{
+    display:block!important;
+    position:fixed!important;
+    left:0!important;
+    right:0!important;
+    top:70px!important;
+    bottom:0!important;
+    inset:auto 0 0 0!important;
+    width:100vw!important;
+    height:calc(100vh - 70px)!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    background:#000!important;
+    line-height:0!important;
+  }
+
+  body.about-page > .desktop-art.about-exact-stage > img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:100%!important;
+    min-height:100%!important;
+    max-width:none!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    object-fit:fill!important;
+    object-position:center!important;
+    transform:none!important;
+  }
+
+  /* Navigation is handled by the real shared header. */
+  body.about-page > .desktop-art.about-exact-stage .inner-nav{
+    display:none!important;
+  }
+}

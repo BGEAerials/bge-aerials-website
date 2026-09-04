@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Works | B.G.E. Aerials</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .works-approved-desktop{display:none}
+
+    @media (min-width:761px){
+      html,body.works-page{
+        width:100%;
+        height:100%;
+        margin:0;
+        overflow:hidden;
+        background:#020202;
+      }
+
+      body.works-page{
+        padding-top:70px;
+      }
+
+      body.works-page>.desktop-unified-header,
+      body.works-page>.shared-corner-logo,
+      body.works-page>.works-live-desktop,
+      body.works-page>.works-desktop-stage,
+      body.works-page>.exact-desktop-page{
+        display:none!important;
+      }
+
+      .works-approved-desktop{
+        display:block;
+        width:100vw;
+        height:calc(100vh - 70px);
+        overflow:hidden;
+        background:#020202;
+      }
+
+      .works-approved-desktop img{
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center top;
+        border:0;
+      }
+
+      body.works-page>.mobile-header,
+      body.works-page>.mobile-drawer,
+      body.works-page>.mobile-only{
+        display:none!important;
+      }
+    }
+
+    /* Tablet-only Works refinement: center artwork and visually remove the side caution tape. */
+    @media (min-width:761px) and (max-width:1180px){
+      .works-approved-desktop{
+        position:relative;
+      }
+      .works-approved-desktop img{
+        object-position:center center;
+      }
+      .works-approved-desktop::before,
+      .works-approved-desktop::after{
+        content:"";
+        position:absolute;
+        z-index:2;
+        top:77.2%;
+        width:31%;
+        height:5.2%;
+        background:#050505;
+        box-shadow:0 0 18px 10px #050505;
+        pointer-events:none;
+      }
+      .works-approved-desktop::before{left:0;}
+      .works-approved-desktop::after{right:0;}
+    }
+
+    /* TRUE iPad landscape/portrait fix — 761px through 1366px. */
+    @supports (-webkit-touch-callout: none) {
+      @media screen and (min-width:761px) and (max-width:1366px) {
+        .desktop-standard-nav a::after,
+        .desktop-standard-nav a.active::after,
+        .desktop-standard-nav a:hover::after{
+          content:none!important;
+          display:none!important;
+          transform:none!important;
+          background:none!important;
+        }
+        .works-approved-desktop{
+          position:relative!important;
+          overflow:hidden!important;
+        }
+        .works-approved-desktop img{
+          width:100%!important;
+          height:100%!important;
+          object-fit:cover!important;
+          object-position:center center!important;
+        }
+        .works-approved-desktop::before,
+        .works-approved-desktop::after{
+          content:""!important;
+          display:block!important;
+          position:absolute!important;
+          z-index:20!important;
+          bottom:0!important;
+          top:auto!important;
+          width:32%!important;
+          height:24%!important;
+          background:#020202!important;
+          box-shadow:none!important;
+          pointer-events:none!important;
+        }
+        .works-approved-desktop::before{left:0!important;}
+        .works-approved-desktop::after{right:0!important;}
+      }
+    }
+  
+
+    /* All-tablet Works layout: centered artwork, no caution tape/social/footer. */
+    @media screen and (min-width:768px) and (max-width:1366px) and (pointer:coarse){
+      .desktop-standard-nav a::after,
+      .desktop-standard-nav a.active::after,
+      .desktop-standard-nav a:hover::after{display:none!important;content:none!important;}
+      .works-approved-desktop{position:relative!important;background:#020202!important;}
+      .works-approved-desktop img{
+        position:absolute!important;
+        left:50%!important;top:48%!important;
+        width:100%!important;height:100%!important;
+        transform:translate(-50%,-50%) scale(.92)!important;
+        object-fit:contain!important;
+        object-position:center center!important;
+        background:#020202!important;
+      }
+      .works-approved-desktop::before,
+      .works-approved-desktop::after{display:none!important;content:none!important;}
+      .works-approved-desktop{clip-path:inset(0 0 12% 0)!important;}
+    }
+
+
+    /* Desktop Works page scroll — keep the shared header fixed while the full portfolio scrolls. */
+    @media screen and (min-width:761px) and (hover:hover) and (pointer:fine){
+      html,body.works-page{
+        height:auto!important;
+        min-height:100%!important;
+        overflow-x:hidden!important;
+        overflow-y:auto!important;
+      }
+      body.works-page{
+        padding-top:70px!important;
+      }
+      .works-approved-desktop{
+        display:block!important;
+        width:100%!important;
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+      }
+      .works-approved-desktop img{
+        position:static!important;
+        display:block!important;
+        width:100%!important;
+        height:auto!important;
+        max-width:none!important;
+        object-fit:contain!important;
+        object-position:center top!important;
+        transform:none!important;
+      }
+      .works-approved-desktop::before,
+      .works-approved-desktop::after{
+        display:none!important;
+        content:none!important;
+      }
+    }
+
+    /* HARD FIX: desktop Works must expose the entire portfolio and scroll normally. */
+    @media screen and (min-width:761px) and (hover:hover) and (pointer:fine){
+      html:has(body.works-page){
+        width:100%!important;
+        height:auto!important;
+        min-height:100%!important;
+        margin:0!important;
+        padding:0!important;
+        overflow-x:hidden!important;
+        overflow-y:auto!important;
+        background:#020202!important;
+      }
+      html:has(body.works-page) body.works-page{
+        display:block!important;
+        position:static!important;
+        width:100%!important;
+        height:auto!important;
+        min-height:100vh!important;
+        margin:0!important;
+        padding:70px 0 0 0!important;
+        overflow:visible!important;
+        background:#020202!important;
+      }
+      html:has(body.works-page) body.works-page > .desktop-standard-header{
+        display:flex!important;
+        position:fixed!important;
+        top:0!important;
+        left:0!important;
+        right:0!important;
+        height:70px!important;
+        z-index:100000!important;
+      }
+      html:has(body.works-page) body.works-page > .works-approved-desktop{
+        display:block!important;
+        position:relative!important;
+        width:100%!important;
+        height:auto!important;
+        min-height:0!important;
+        margin:0!important;
+        padding:0!important;
+        overflow:visible!important;
+        clip-path:none!important;
+        line-height:0!important;
+        background:#020202!important;
+      }
+      html:has(body.works-page) body.works-page > .works-approved-desktop > img{
+        display:block!important;
+        position:static!important;
+        inset:auto!important;
+        width:100%!important;
+        height:auto!important;
+        min-width:0!important;
+        min-height:0!important;
+        max-width:100%!important;
+        max-height:none!important;
+        margin:0!important;
+        padding:0!important;
+        object-fit:contain!important;
+        object-position:center top!important;
+        transform:none!important;
+      }
+      html:has(body.works-page) body.works-page > .mobile-header,
+      html:has(body.works-page) body.works-page > .mobile-drawer,
+      html:has(body.works-page) body.works-page > .mobile-only{
+        display:none!important;
+      }
+    }
+
+
+    /* Tablet landscape ONLY: use the full screen width and allow the portfolio to scroll vertically. */
+    @media screen and (min-width:761px) and (max-width:1366px) and (orientation:landscape) and (pointer:coarse){
+      html:has(body.works-page),
+      html:has(body.works-page) body.works-page{
+        width:100%!important;
+        height:auto!important;
+        min-height:100%!important;
+        overflow-x:hidden!important;
+        overflow-y:auto!important;
+        background:#020202!important;
+      }
+      html:has(body.works-page) body.works-page{
+        margin:0!important;
+        padding:70px 0 0 0!important;
+      }
+      html:has(body.works-page) body.works-page > .works-approved-desktop{
+        display:block!important;
+        position:relative!important;
+        width:100vw!important;
+        height:auto!important;
+        min-height:0!important;
+        margin:0!important;
+        padding:0!important;
+        overflow:visible!important;
+        clip-path:none!important;
+        background:#020202!important;
+        line-height:0!important;
+      }
+      html:has(body.works-page) body.works-page > .works-approved-desktop > img{
+        display:block!important;
+        position:static!important;
+        inset:auto!important;
+        width:100vw!important;
+        height:auto!important;
+        max-width:none!important;
+        max-height:none!important;
+        margin:0!important;
+        padding:0!important;
+        transform:none!important;
+        object-fit:contain!important;
+        object-position:center top!important;
+        background:#020202!important;
+      }
+      html:has(body.works-page) body.works-page > .works-approved-desktop::before,
+      html:has(body.works-page) body.works-page > .works-approved-desktop::after{
+        display:none!important;
+        content:none!important;
+      }
+    }
+
+</style>
+</head>
+<body class="works-page">
+<header class="mobile-header"><div class="mobile-logo-home" aria-label="B.G.E. Aerials"><img src="assets/contact-logo-clean.png" alt="B.G.E. Aerials"></div><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button></header>
+<nav class="mobile-drawer" aria-label="Mobile navigation"><a href="index.html">HOME</a><a href="services.html">SERVICES</a><a class="active" href="works.html">WORKS</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
+
+<header class="desktop-standard-header" aria-label="Desktop site header">
+  <div class="desktop-standard-logo" aria-label="B.G.E. Aerials">
+    <img src="assets/desktop-about-logo-full-transparent.png" alt="B.G.E. Aerials">
+  </div>
+  <nav class="desktop-standard-nav" aria-label="Primary navigation">
+    <a href="index.html">HOME</a>
+    <a href="services.html">SERVICES</a>
+    <a class="active" href="works.html">WORKS</a>
+    <a href="about.html">ABOUT</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+</header>
+
+<main class="works-approved-desktop" aria-label="B.G.E. Aerials Works — portfolio showcase">
+  <img src="assets/works.webp?v=20260818-realistic-portfolio" alt="B.G.E. Aerials Works portfolio">
+</main>
+
+<main class="mobile-only mobile-page mobile-works-exact" aria-label="B.G.E. Aerials Works — portfolio showcase">
+  <img src="assets/works-mobile.webp?v=20260818-realistic-portfolio" alt="B.G.E. Aerials Works portfolio">
+  <button class="mobile-works-menu" type="button" aria-label="Open navigation" aria-expanded="false"></button>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

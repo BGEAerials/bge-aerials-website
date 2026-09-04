@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Contact B.G.E. Aerials for aerial photography, videography, commercial media, and real estate projects.">
+  <title>Contact | B.G.E. Aerials</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width:100%; min-height:100%; margin:0; background:#000; }
+    body { overflow:hidden; font-family:Arial,Helvetica,sans-serif; }
+    .contact-screen { position:fixed; inset:0; width:100vw; height:100vh; overflow:hidden; background:#000; }
+    .contact-screen > img { position:absolute; inset:0; display:block; width:100%; height:100%; max-width:none; object-fit:fill; object-position:center; user-select:none; pointer-events:none; -webkit-user-drag:none; }
+    .hotspot { position:absolute; z-index:5; display:block; overflow:hidden; color:transparent; text-indent:-9999px; white-space:nowrap; }
+    .hotspot:focus-visible { outline:3px solid #fff; outline-offset:-3px; }
+    .nav { top:1.3%; height:7.8%; }
+    .home { left:28.2%; width:9.5%; }
+    .services { left:39.4%; width:10.7%; }
+    .works { left:51.2%; width:9.2%; }
+    .about { left:62.0%; width:9.0%; }
+    .contact { left:72.5%; width:10.3%; }
+    .social-x { left:29.7%; top:83.8%; width:4.2%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-instagram { left:37.8%; top:83.8%; width:4.2%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-tiktok { left:46.3%; top:83.8%; width:4.5%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-facebook { left:55.9%; top:83.8%; width:3.8%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+    .social-youtube { left:63.9%; top:83.8%; width:5.0%; height:6.2%; z-index:30; cursor:pointer; pointer-events:auto; }
+
+    .contact-form { position:absolute; z-index:4; inset:0; margin:0; pointer-events:none; }
+    .field, .submit-button { position:absolute; pointer-events:auto; border:1px solid #cfd3d9; border-radius:3px; background:#fff; color:#111; font:inherit; font-size:clamp(10px,1.05vw,16px); padding:0 1.15%; outline:none; }
+    .field:focus { border-color:#111; box-shadow:0 0 0 3px rgba(0,0,0,.12); }
+    .first-name { left:52.05%; top:17.2%; width:18.35%; height:5.0%; }
+    .last-name { left:71.88%; top:17.2%; width:20.18%; height:5.0%; }
+    .phone { left:52.05%; top:27.1%; width:40.0%; height:4.8%; }
+    .email { left:52.05%; top:36.65%; width:40.0%; height:4.8%; }
+    .project-type { left:52.05%; top:45.95%; width:40.0%; height:4.8%; appearance:auto; }
+    .details { left:52.05%; top:55.15%; width:40.0%; height:12.25%; padding-top:1.15%; resize:none; }
+    .submit-button { left:51.95%; top:69.1%; width:40.15%; height:6.35%; border:0; border-radius:2px; background:#050505; color:#fff; cursor:pointer; font-family:Impact,'Arial Narrow',Arial,sans-serif; font-size:clamp(14px,1.65vw,26px); letter-spacing:.08em; text-transform:uppercase; }
+    .submit-button:hover { background:#1b1b1b; }
+    .submit-button:focus-visible { outline:3px solid #d2d2d2; outline-offset:2px; }
+    .status { position:absolute; left:52.05%; top:76%; width:40%; margin:0; text-align:center; font-size:clamp(9px,.85vw,13px); color:#111; pointer-events:none; }
+    .honeypot { position:absolute!important; left:-9999px!important; width:1px!important; height:1px!important; overflow:hidden!important; }
+
+    @media (max-width:760px) {
+      body { overflow:auto; }
+      .contact-screen { position:relative; width:100%; height:auto; min-height:100svh; aspect-ratio:3/2; }
+      .contact-screen > img { object-fit:contain; background:#000; }
+      .field { font-size:clamp(7px,1.9vw,12px); }
+      .submit-button { font-size:clamp(9px,2.3vw,16px); }
+    }
+
+    .shared-corner-logo { display:none; }
+    @media (min-width:761px) {
+      .shared-corner-logo { display:block; position:fixed; z-index:20; left:clamp(28px,2.55vw,42px); top:clamp(8px,.75vw,13px); width:clamp(215px,18.23vw,300px); height:auto; line-height:0; }
+      .shared-corner-logo::before { content:""; position:absolute; z-index:-1; inset:clamp(-8px,-.5vw,-3px) clamp(-10px,-.65vw,-4px); background:#000; }
+      .shared-corner-logo img { display:block; width:100%; height:auto; }
+    }
+  
+    /* Tablet-only Contact refinements: remove active nav underline and fit the full contact artwork below the header. */
+    @media (min-width:761px) and (max-width:1200px){
+      .desktop-standard-nav a::after{display:none!important;}
+      .contact-screen{top:70px!important;bottom:0!important;height:auto!important;}
+      .contact-screen > img{width:100%!important;height:100%!important;object-fit:fill!important;object-position:center!important;}
+    }
+
+    .desktop-standard-header{display:none}
+    @media (min-width:761px){
+      .desktop-standard-header{
+        display:flex;position:fixed;inset:0 0 auto 0;z-index:100000;
+        width:100vw;height:70px;background:#050505;
+        align-items:center;justify-content:center;
+      }
+      .desktop-standard-logo{
+        position:absolute;left:28px;top:7px;width:210px;height:56px;
+        overflow:hidden;pointer-events:none;user-select:none;
+      }
+      .desktop-standard-logo img{
+        display:block;width:100%;height:56px;object-fit:contain;object-position:left center;
+      }
+      .desktop-standard-nav{display:flex;align-items:center;justify-content:center;gap:88px;height:70px}
+      .desktop-standard-nav a{
+        position:relative;display:flex;align-items:center;height:70px;
+        color:#d9d9d9;text-decoration:none;text-transform:uppercase;
+        font-family:"Arial Narrow",Arial,Helvetica,sans-serif;
+        font-size:21px;font-weight:500;line-height:70px;letter-spacing:.08em;white-space:nowrap;
+        background:linear-gradient(180deg,#ffffff 0%,#d5d5d5 35%,#858585 52%,#f3f3f3 72%,#b8b8b8 100%);
+        -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+        text-shadow:0 1px 1px rgba(255,255,255,.20),0 2px 4px rgba(0,0,0,.65);
+      }
+      .desktop-standard-nav a::after{
+        content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;
+        background:linear-gradient(90deg,#777,#fff,#777);transform:scaleX(0);
+      }
+      .desktop-standard-nav a:hover::after,
+      .desktop-standard-nav a.active::after{transform:scaleX(1)}
+      .contact-screen>.nav{display:none!important}
+    }
+
+    .success-screen {
+      position:fixed; inset:0; z-index:200000; display:none; place-items:center;
+      background:#050505; color:#fff; text-align:center; padding:24px; overflow:auto;
+    }
+    .success-screen.is-visible { display:grid; }
+    .success-card { width:min(720px,92vw); }
+    .success-logo { width:min(440px,85vw); height:auto; margin:0 auto 28px; display:block; }
+    .success-title { font-size:clamp(30px,5vw,62px); margin:0 0 20px; text-transform:uppercase; }
+    .success-copy { font-size:clamp(16px,2vw,22px); line-height:1.55; color:#d8d8d8; margin:12px 0; }
+    .success-home { display:inline-block; margin-top:24px; padding:14px 28px; background:#fff; color:#000; text-decoration:none; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+
+
+
+    /* Mobile Contact page — rebuilt with native form controls to prevent overlay/duplication */
+    .mobile-contact-art { display:none; }
+    @media (max-width:760px) {
+      html,body{margin:0;width:100%;min-height:100%;background:#000;overflow-x:hidden}
+      body{overflow-y:auto!important}
+      .desktop-standard-header,.contact-screen{display:none!important}
+      .mobile-contact-art{display:block;width:100%;max-width:853px;margin:0 auto;background:#000;color:#111;line-height:normal}
+      .mobile-contact-header{height:92px;background:#050505;display:flex;align-items:center;justify-content:space-between;padding:8px 18px 8px 16px}
+      .mobile-logo-home{display:block;width:min(48vw,330px);line-height:0}
+      .mobile-logo-home img{display:block;width:100%;height:auto}
+      .mobile-menu-button{position:relative;width:54px;height:54px;border:0;background:transparent;padding:0;cursor:pointer}
+      .mobile-menu-button span,.mobile-menu-button::before,.mobile-menu-button::after{content:"";position:absolute;left:7px;right:7px;height:5px;border-radius:4px;background:#f4f4f4;box-shadow:0 1px 3px rgba(255,255,255,.25)}
+      .mobile-menu-button::before{top:13px}.mobile-menu-button span{top:25px}.mobile-menu-button::after{top:37px}
+      .mobile-contact-hero{background:#000;line-height:0}
+      .mobile-contact-hero img{display:block;width:100%;height:auto}
+      .mobile-form-section{background:#fff;padding:38px 5.7% 30px}
+      .mobile-live-form{position:static!important;inset:auto!important;z-index:auto!important;margin:0!important;pointer-events:auto!important;line-height:normal!important;display:grid;grid-template-columns:1fr 1fr;gap:22px 4.4%}
+      .mobile-live-form .form-group{display:flex;flex-direction:column;gap:9px;min-width:0}
+      .mobile-live-form .form-group.full{grid-column:1/-1}
+      .mobile-live-form label{font:600 clamp(14px,3.2vw,19px)/1.25 Arial,Helvetica,sans-serif;color:#111}
+      .mobile-live-form label small{font-size:.72em;font-weight:500;margin-left:8px}
+      .mobile-live-form .mfield,.mobile-live-form .msubmit{position:static!important;left:auto!important;top:auto!important;width:100%!important;height:auto!important;pointer-events:auto!important;box-sizing:border-box;margin:0;border:1px solid #cfd3d9;border-radius:4px;background:#fff;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:clamp(16px,4vw,21px);padding:16px 18px;outline:none}
+      .mobile-live-form .mfield:focus{border-color:#666;box-shadow:0 0 0 2px rgba(0,0,0,.09)}
+      .mobile-live-form select.mfield{min-height:58px}
+      .mobile-live-form textarea.mfield{min-height:150px;resize:vertical;padding-top:16px}
+      .mobile-live-form .msubmit{grid-column:1/-1;min-height:64px;border:0;border-radius:4px;background:#020202;color:#fff;text-transform:uppercase;letter-spacing:.06em;font-family:Impact,'Arial Narrow',Arial,sans-serif;font-size:clamp(20px,5vw,29px);cursor:pointer;padding:14px 18px}
+      .mobile-live-form .mstatus{grid-column:1/-1;margin:-8px 0 0;text-align:center;color:#111;font:13px/1.35 Arial,Helvetica,sans-serif}
+      .honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+      .mobile-contact-footer{background:#050505;color:#fff;padding:34px 7% 24px;text-align:center}
+      .mobile-social-title{display:flex;align-items:center;justify-content:center;gap:18px;max-width:620px;margin:0 auto 20px}
+      .mobile-social-title-line{display:block;flex:1;height:2px;max-width:180px;background:linear-gradient(90deg,transparent,#f4f4f4)}
+      .mobile-social-title-line:last-child{background:linear-gradient(90deg,#f4f4f4,transparent)}
+      .mobile-social-title-text{font:500 clamp(30px,7vw,43px)/1 Impact,'Arial Narrow',Arial,sans-serif;letter-spacing:.10em;color:#f2f2f2;text-transform:uppercase;text-shadow:0 1px 0 #fff,0 2px 0 #777,0 3px 5px rgba(255,255,255,.22)}
+      .mobile-social-row{display:flex;align-items:center;justify-content:space-between;max-width:620px;margin:0 auto 18px}
+      .mobile-social-row a{display:grid;place-items:center;width:54px;height:54px;color:#eee;text-decoration:none}
+      .mobile-social-row img{width:44px;height:44px;display:block;object-fit:contain}
+      .mobile-handle{margin:0 0 14px;font:800 clamp(24px,6vw,36px)/1 Arial,Helvetica,sans-serif;letter-spacing:.10em;color:#d8d8d8;text-transform:uppercase;text-shadow:0 1px 0 #fff,0 2px 0 #a2a2a2,0 3px 0 #555,0 4px 5px rgba(255,255,255,.15)}
+      .mobile-copyright{margin:0;padding-top:14px;border-top:1px solid rgba(255,255,255,.36);font:400 clamp(12px,3.1vw,16px)/1.35 Arial,Helvetica,sans-serif;color:#ddd}
+      .mobile-contact-drawer{display:none;position:fixed;z-index:100000;left:0;right:0;top:0;padding:82px 28px 30px;background:rgba(0,0,0,.98);border-bottom:1px solid rgba(255,255,255,.22);line-height:1.2;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+      .mobile-contact-drawer.open{display:grid;gap:6px}
+      .mobile-contact-drawer a{display:block;padding:14px 8px;color:#eee;text-decoration:none;text-transform:uppercase;font:600 17px/1.15 Arial,Helvetica,sans-serif;letter-spacing:.12em;border-bottom:1px solid rgba(255,255,255,.12)}
+      .mobile-contact-close{position:absolute;right:21px;top:19px;width:46px;height:46px;border:0;background:transparent;color:#fff;font:300 42px/42px Arial,sans-serif;cursor:pointer}
+      .success-screen{position:fixed}
+    }
+
+
+  
+    @media (max-width:760px){
+      :root{--bge-mobile-header-height:92px}
+      .mobile-contact-header{
+        position:fixed!important;
+        top:0!important;
+        left:0!important;
+        right:0!important;
+        width:100%!important;
+        height:var(--bge-mobile-header-height)!important;
+        z-index:10000!important;
+        margin:0!important;
+        transform:none!important;
+      }
+      .mobile-contact-art{
+        padding-top:var(--bge-mobile-header-height)!important;
+      }
+      .mobile-contact-drawer{
+        position:fixed!important;
+        top:var(--bge-mobile-header-height)!important;
+        left:0!important;
+        right:0!important;
+        z-index:9999!important;
+      }
+    }
+
+
+    /* FINAL exact mobile Contact layout from approved reference image. Desktop rules are unchanged. */
+    @media (max-width:760px){
+      html,body{width:100%;min-height:100%;margin:0;background:#000;overflow-x:hidden}
+      body{overflow-y:auto!important}
+      .desktop-standard-header,.contact-screen{display:none!important}
+      .mobile-contact-art{display:block!important;width:100%;max-width:none;margin:0;padding-top:clamp(42px,11.035vw,84px)!important;background:#000}
+
+      .mobile-contact-header-exact{display:block!important;position:fixed!important;z-index:10000!important;top:0!important;left:0!important;right:0!important;width:100%!important;height:auto!important;padding:0!important;margin:0!important;background:#000!important;line-height:0!important}
+      .mobile-contact-header-exact>img{display:block;width:100%;height:auto;margin:0}
+      .mobile-header-home-hotspot{display:block!important;position:absolute!important;left:2.5%!important;top:5%!important;width:36%!important;height:90%!important;background:transparent!important;z-index:3!important}
+      .mobile-menu-hotspot{display:block!important;position:absolute!important;right:1.5%!important;top:4%!important;width:11%!important;height:92%!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;z-index:4!important}
+      .mobile-menu-hotspot::before,.mobile-menu-hotspot::after,.mobile-menu-hotspot span{display:none!important}
+
+      .mobile-contact-hero-exact{display:block!important;width:100%;margin:0!important;padding:0!important;background:#000!important;line-height:0!important}
+      .mobile-contact-hero-exact>img{display:block;width:100%;height:auto;margin:0}
+
+      .mobile-form-section-exact{display:block!important;background:#fff!important;padding:27px 6.15% 25px!important;color:#111!important}
+      .mobile-form-section-exact .mobile-live-form{position:static!important;display:grid!important;grid-template-columns:1fr 1fr!important;column-gap:4.1%!important;row-gap:19px!important;width:100%!important;margin:0!important;padding:0!important;pointer-events:auto!important;line-height:normal!important}
+      .mobile-form-section-exact .form-group{display:flex!important;flex-direction:column!important;gap:8px!important;min-width:0!important;margin:0!important}
+      .mobile-form-section-exact .form-group.full{grid-column:1/-1!important}
+      .mobile-form-section-exact label{display:block!important;margin:0!important;color:#111!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(14px,2.05vw,21px)!important;font-weight:500!important;line-height:1.15!important}
+      .mobile-form-section-exact label small{margin-left:9px!important;font-size:.73em!important;font-weight:500!important}
+      .mobile-form-section-exact .mfield{position:static!important;display:block!important;width:100%!important;height:58px!important;min-height:58px!important;margin:0!important;padding:0 21px!important;border:1px solid #c8cdd3!important;border-radius:3px!important;background:#fff!important;color:#222!important;box-shadow:none!important;outline:none!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(15px,1.95vw,20px)!important;font-weight:400!important;line-height:58px!important;appearance:none!important}
+      .mobile-form-section-exact .mfield::placeholder{color:#333!important;opacity:1!important}
+      .mobile-form-section-exact textarea.mfield{height:124px!important;min-height:124px!important;padding:15px 21px!important;line-height:1.35!important;resize:none!important}
+      .mobile-email-shell{position:relative;width:100%}
+      .mobile-email-shell::after{content:"⌄";position:absolute;right:18px;top:50%;transform:translateY(-56%);color:#000;font:700 22px/1 Arial,sans-serif;pointer-events:none}
+      .mobile-email-shell .mfield{padding-right:48px!important}
+      .mobile-form-section-exact .msubmit{position:static!important;grid-column:1/-1!important;width:100%!important;height:82px!important;min-height:82px!important;margin:4px 0 0!important;padding:0!important;border:0!important;border-radius:3px!important;background:#020202!important;color:#fff!important;font-family:Impact,'Arial Narrow',Arial,sans-serif!important;font-size:clamp(24px,3.2vw,34px)!important;font-weight:400!important;line-height:82px!important;letter-spacing:.02em!important;text-transform:uppercase!important;cursor:pointer!important}
+      .mobile-form-section-exact .mstatus{grid-column:1/-1!important;min-height:0!important;margin:-10px 0 0!important;color:#111!important;text-align:center!important;font:12px/1.2 Arial,sans-serif!important}
+
+      .mobile-contact-footer-exact{display:block!important;position:relative!important;width:100%!important;margin:0!important;padding:0!important;background:#000!important;line-height:0!important;text-align:initial!important}
+      .mobile-contact-footer-exact>img{display:block!important;width:100%!important;height:auto!important;margin:0!important}
+      .mobile-social-hotspots{position:absolute;left:0;right:0;top:29%;height:31%;z-index:50;pointer-events:none}
+      .mobile-social-hotspots a{position:absolute;display:block;top:0;height:100%;background:transparent;z-index:51;pointer-events:auto;touch-action:manipulation}
+      .mobile-social-hotspots .sx{left:14.5%;width:12%}.mobile-social-hotspots .si{left:29.7%;width:12%}.mobile-social-hotspots .st{left:42.8%;width:15.6%;z-index:99999!important;pointer-events:auto!important;touch-action:manipulation!important}.mobile-social-hotspots .sf{left:59.8%;width:10%}.mobile-social-hotspots .sy{left:73.6%;width:14%}
+
+      .mobile-contact-drawer{top:clamp(42px,11.035vw,84px)!important}
+    }
+
+    @media (max-width:760px){
+      .mobile-contact-drawer{
+        display:none;position:fixed!important;left:0!important;right:0!important;top:92px!important;bottom:0!important;
+        width:100%!important;height:auto!important;padding:50px 24px 30px!important;margin:0!important;
+        background:rgba(0,0,0,.90)!important;border:0!important;box-shadow:none!important;z-index:100000!important;
+        align-content:start!important;justify-items:center!important;gap:34px!important;
+      }
+      .mobile-contact-drawer.open{display:grid!important}
+      .mobile-contact-drawer a{display:block!important;width:auto!important;padding:0!important;margin:0!important;border:0!important;color:#fff!important;text-decoration:none!important;text-transform:uppercase!important;font-family:Arial,Helvetica,sans-serif!important;font-size:22px!important;font-weight:700!important;line-height:1.35!important;letter-spacing:.12em!important;text-align:center!important}
+      .mobile-contact-close{display:none!important}
+    }
+
+
+
+    /* 2026-08-10 — mobile Contact fits inside one phone viewport with no page scrolling. */
+    @media (max-width:760px){
+      html,body{height:100%!important;min-height:100%!important;overflow:hidden!important;overscroll-behavior:none!important}
+      body{overflow-y:hidden!important}
+      .mobile-contact-art{
+        display:block!important;
+        position:relative!important;
+        width:100%!important;
+        height:100dvh!important;
+        min-height:0!important;
+        max-height:100dvh!important;
+        overflow:hidden!important;
+        padding-top:11.035vw!important;
+      }
+      .mobile-contact-header-exact{height:11.035vw!important;max-height:none!important;overflow:hidden!important}
+      .mobile-contact-header-exact>img{width:100%!important;height:auto!important}
+      .mobile-contact-hero-exact{height:47.363vw!important;overflow:hidden!important}
+      .mobile-contact-hero-exact>img{width:100%!important;height:100%!important;object-fit:cover!important}
+
+      .mobile-form-section-exact{
+        padding:10px 6.15% 9px!important;
+      }
+      .mobile-form-section-exact .mobile-live-form{
+        column-gap:4.1%!important;
+        row-gap:7px!important;
+      }
+      .mobile-form-section-exact .form-group{gap:3px!important}
+      .mobile-form-section-exact label{
+        font-size:clamp(9px,2.55vw,13px)!important;
+        line-height:1.05!important;
+      }
+      .mobile-form-section-exact label small{margin-left:4px!important;font-size:.70em!important}
+      .mobile-form-section-exact .mfield{
+        height:34px!important;
+        min-height:34px!important;
+        padding:0 10px!important;
+        font-size:clamp(11px,3.15vw,15px)!important;
+        line-height:34px!important;
+      }
+      .mobile-form-section-exact textarea.mfield{
+        height:58px!important;
+        min-height:58px!important;
+        padding:8px 10px!important;
+        line-height:1.2!important;
+      }
+      .mobile-form-section-exact select.mfield{
+        appearance:auto!important;
+        -webkit-appearance:menulist!important;
+        padding-right:8px!important;
+      }
+      .mobile-email-shell::after{right:10px!important;font-size:16px!important}
+      .mobile-email-shell .mfield{padding-right:30px!important}
+      .mobile-form-section-exact .msubmit{
+        height:42px!important;
+        min-height:42px!important;
+        margin:1px 0 0!important;
+        font-size:clamp(15px,4.4vw,21px)!important;
+        line-height:42px!important;
+      }
+      .mobile-form-section-exact .mstatus{
+        margin:-5px 0 0!important;
+        font-size:9px!important;
+        line-height:1!important;
+      }
+      .mobile-contact-footer-exact{
+        position:absolute!important;
+        left:0!important;
+        right:0!important;
+        bottom:0!important;
+        width:100%!important;
+        height:26.758vw!important;
+        margin:0!important;
+        overflow:hidden!important;
+        z-index:20!important;
+      }
+      .mobile-contact-footer-exact>img{width:100%!important;height:100%!important;object-fit:cover!important}
+      .mobile-contact-drawer{overflow:hidden!important}
+    }
+
+    /* Extra compression for short phones (older iPhones / small Android screens). */
+    @media (max-width:760px) and (max-height:700px){
+      .mobile-form-section-exact{padding:6px 6.15% 5px!important}
+      .mobile-form-section-exact .mobile-live-form{row-gap:4px!important}
+      .mobile-form-section-exact .form-group{gap:2px!important}
+      .mobile-form-section-exact label{font-size:9px!important}
+      .mobile-form-section-exact .mfield{height:29px!important;min-height:29px!important;line-height:29px!important;font-size:11px!important;padding:0 8px!important}
+      .mobile-form-section-exact textarea.mfield{height:45px!important;min-height:45px!important;padding:6px 8px!important;line-height:1.15!important}
+      .mobile-form-section-exact .msubmit{height:35px!important;min-height:35px!important;line-height:35px!important;font-size:15px!important}
+      .mobile-form-section-exact .mstatus{display:none!important}
+    }
+
+
+    /* 2026-08-10 — true edge-to-edge mobile viewport fix. */
+    @media (max-width:760px){
+      html,body{width:100%!important;height:100%!important;min-height:100%!important;margin:0!important;padding:0!important;background:#000!important;overflow:hidden!important}
+      .mobile-contact-art{
+        box-sizing:border-box!important;
+        display:flex!important;
+        flex-direction:column!important;
+        width:100vw!important;
+        height:100svh!important;
+        min-height:100svh!important;
+        max-height:100svh!important;
+        margin:0!important;
+        padding-top:11.035vw!important;
+        overflow:hidden!important;
+        background:#000!important;
+      }
+      @supports(height:100dvh){.mobile-contact-art{height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important}}
+      .mobile-contact-hero-exact{flex:0 0 47.363vw!important}
+      .mobile-form-section-exact{
+        box-sizing:border-box!important;
+        flex:1 1 auto!important;
+        min-height:0!important;
+        display:flex!important;
+        align-items:center!important;
+        width:100%!important;
+      }
+      .mobile-form-section-exact .mobile-live-form{width:100%!important}
+      .mobile-contact-footer-exact{
+        position:relative!important;
+        left:auto!important;right:auto!important;bottom:auto!important;
+        flex:0 0 26.758vw!important;
+        height:26.758vw!important;
+        margin-top:auto!important;
+      }
+    }
+  
+
+    /* 2026-08-10 — force Project Type to remain visible on every phone height. */
+    @media (max-width:760px){
+      .mobile-form-section-exact{
+        align-items:stretch!important;
+        padding:5px 6.15% 5px!important;
+        overflow:hidden!important;
+      }
+      .mobile-form-section-exact .mobile-live-form{
+        height:100%!important;
+        max-height:100%!important;
+        display:grid!important;
+        grid-template-columns:1fr 1fr!important;
+        grid-auto-rows:min-content!important;
+        align-content:center!important;
+        row-gap:4px!important;
+      }
+      .mobile-form-section-exact .form-group{gap:2px!important}
+      .mobile-form-section-exact label{font-size:clamp(9px,2.4vw,12px)!important;line-height:1!important}
+      .mobile-form-section-exact .mfield{height:30px!important;min-height:30px!important;line-height:30px!important;font-size:clamp(11px,3vw,14px)!important;padding:0 9px!important}
+      .mobile-form-section-exact select#m-project-type{
+        display:block!important;
+        visibility:visible!important;
+        opacity:1!important;
+        width:100%!important;
+        height:30px!important;
+        min-height:30px!important;
+        appearance:menulist!important;
+        -webkit-appearance:menulist!important;
+      }
+      .mobile-form-section-exact textarea.mfield{height:44px!important;min-height:44px!important;padding:6px 9px!important;line-height:1.15!important}
+      .mobile-form-section-exact .msubmit{height:34px!important;min-height:34px!important;line-height:34px!important;font-size:15px!important;margin-top:0!important}
+      .mobile-form-section-exact .mstatus{display:none!important}
+    }
+
+
+    /* TRUE iPad landscape/portrait Contact fix — 761px through 1366px. */
+    @supports (-webkit-touch-callout: none) {
+      @media screen and (min-width:761px) and (max-width:1366px) {
+        html,body{
+          width:100%!important;
+          height:100%!important;
+          min-height:100%!important;
+          margin:0!important;
+          overflow:hidden!important;
+          background:#000!important;
+        }
+        .desktop-standard-nav a::after,
+        .desktop-standard-nav a.active::after,
+        .desktop-standard-nav a:hover::after{
+          content:none!important;
+          display:none!important;
+          transform:none!important;
+          background:none!important;
+        }
+        .contact-screen{
+          position:fixed!important;
+          top:70px!important;
+          right:0!important;
+          bottom:0!important;
+          left:0!important;
+          width:100vw!important;
+          height:calc(100dvh - 70px)!important;
+          min-height:0!important;
+          overflow:hidden!important;
+          background:#000!important;
+        }
+        .contact-screen>img{
+          position:absolute!important;
+          inset:0!important;
+          width:100%!important;
+          height:100%!important;
+          max-width:none!important;
+          max-height:none!important;
+          object-fit:fill!important;
+          object-position:center center!important;
+        }
+      }
+    }
+
+
+    /* Tablet Contact page — live HTML, not a flattened screenshot. */
+    .tablet-contact-live{display:none;}
+    @media screen and (min-width:768px) and (max-width:1366px) and (pointer:coarse){
+      html,body{background:#000!important;}
+      body{overflow:hidden!important;}
+      .contact-screen{display:none!important;}
+      .mobile-contact-art,.mobile-contact-drawer{display:none!important;}
+      .desktop-standard-header{display:flex!important;}
+      .desktop-standard-nav a::after,
+      .desktop-standard-nav a.active::after,
+      .desktop-standard-nav a:hover::after{display:none!important;content:none!important;}
+      .tablet-contact-live{
+        display:grid!important;
+        position:fixed;
+        z-index:2;
+        top:70px;left:0;right:0;bottom:0;
+        grid-template-rows:minmax(0,1fr) clamp(118px,17vh,170px);
+        background:#000;
+        overflow:hidden;
+      }
+      .tablet-contact-main{
+        display:grid;
+        grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+        min-height:0;
+        overflow:hidden;
+        background:#fff;
+      }
+      .tablet-contact-visual{
+        position:relative;
+        min-width:0;
+        background:url('assets/contact-left.webp') center center/cover no-repeat;
+        overflow:hidden;
+      }
+      .tablet-contact-copy{
+        position:absolute;
+        top:7%;left:8%;right:8%;
+        color:#090909;
+        text-shadow:0 1px 0 rgba(255,255,255,.18);
+      }
+      .tablet-contact-copy h1{
+        margin:0 0 14px;
+        font-family:Impact,'Arial Narrow',Arial,sans-serif;
+        font-size:clamp(46px,5.1vw,78px);
+        line-height:.93;
+        letter-spacing:-.025em;
+        text-transform:uppercase;
+        max-width:7.2em;
+      }
+      .tablet-contact-copy p{
+        margin:0;
+        max-width:31em;
+        font:700 clamp(13px,1.45vw,20px)/1.42 Arial,Helvetica,sans-serif;
+      }
+      .tablet-contact-panel{
+        min-width:0;
+        display:flex;
+        align-items:center;
+        background:#fff;
+        padding:clamp(16px,2vw,30px) clamp(20px,2.7vw,40px);
+        overflow:hidden;
+      }
+      .tablet-contact-form{
+        width:100%;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:clamp(8px,1.1vh,13px) 14px;
+        font-family:Arial,Helvetica,sans-serif;
+        color:#111;
+      }
+      .tablet-contact-form .full{grid-column:1/-1;}
+      .tablet-contact-form label{display:grid;gap:5px;font-size:clamp(10px,1vw,13px);font-weight:500;}
+      .tablet-contact-form small{font-size:.78em;font-weight:400;margin-left:5px;}
+      .tablet-contact-form input,
+      .tablet-contact-form select,
+      .tablet-contact-form textarea{
+        box-sizing:border-box;
+        width:100%;
+        border:1px solid #cfd3d8;
+        border-radius:2px;
+        background:#fff;
+        color:#111;
+        font:400 clamp(11px,1.05vw,14px)/1.2 Arial,Helvetica,sans-serif;
+        padding:8px 10px;
+        min-height:34px;
+        outline:none;
+      }
+      .tablet-contact-form textarea{height:clamp(58px,8vh,92px);min-height:58px;resize:none;}
+      .tablet-contact-form button{
+        grid-column:1/-1;
+        min-height:38px;
+        border:0;
+        background:#050505;
+        color:#fff;
+        font:700 clamp(16px,1.55vw,23px)/1 Impact,'Arial Narrow',Arial,sans-serif;
+        letter-spacing:.04em;
+        text-transform:uppercase;
+        cursor:pointer;
+      }
+      .tablet-contact-form .tstatus{grid-column:1/-1;margin:0;min-height:0;font-size:11px;}
+      .tablet-contact-footer{
+        display:grid;
+        place-items:center;
+        align-content:center;
+        background:#050505;
+        color:#fff;
+        padding:8px 20px 10px;
+        text-align:center;
+        font-family:Arial,Helvetica,sans-serif;
+      }
+      .tablet-contact-footer .socials-title{
+        display:flex;align-items:center;gap:18px;
+        font:700 clamp(22px,2.6vw,38px)/1 Impact,'Arial Narrow',Arial,sans-serif;
+        letter-spacing:.12em;
+      }
+      .tablet-contact-footer .socials-title::before,
+      .tablet-contact-footer .socials-title::after{content:'';width:clamp(90px,15vw,190px);height:1px;background:#ddd;}
+      .tablet-social-row{display:flex;align-items:center;justify-content:center;gap:clamp(24px,5.2vw,64px);margin:7px 0 3px;}
+      .tablet-social-row a{display:grid;place-items:center;width:34px;height:34px;text-decoration:none;}
+      .tablet-social-row img{display:block;max-width:30px;max-height:30px;object-fit:contain;}
+      .tablet-contact-handle{font:700 clamp(18px,2.3vw,32px)/1.05 Arial,Helvetica,sans-serif;letter-spacing:.12em;}
+      .tablet-contact-copyright{margin-top:5px;font-size:clamp(9px,.9vw,12px);font-weight:400;}
+    }
+
+
+    /* 2026-09-04 — Contact tablet LANDSCAPE only.
+       Removes the duplicate live text layered over the approved contact-left artwork
+       and gives the Socials footer enough room to display cleanly.
+       Desktop, mobile, tablet portrait, and every other tablet page are untouched. */
+    @media screen and (min-width:768px) and (max-width:1366px) and (pointer:coarse) and (orientation:landscape){
+      .tablet-contact-copy{display:none!important;}
+      .tablet-contact-live{
+        grid-template-rows:minmax(0,1fr) clamp(170px,20vh,205px)!important;
+      }
+      .tablet-contact-footer{
+        padding:10px 20px 12px!important;
+      }
+      .tablet-contact-footer .socials-title{
+        gap:18px!important;
+        margin:0!important;
+      }
+      .tablet-social-row{
+        gap:clamp(24px,4.6vw,58px)!important;
+        margin:8px 0 4px!important;
+      }
+      .tablet-social-row a{
+        width:36px!important;
+        height:36px!important;
+      }
+      .tablet-social-row img{
+        max-width:29px!important;
+        max-height:29px!important;
+      }
+      .tablet-contact-handle{
+        line-height:1!important;
+      }
+      .tablet-contact-copyright{
+        margin-top:4px!important;
+      }
+    }
+
+
+    /* 2026-09-03 — Contact tablet portrait fit only. Keeps all existing content/artwork unchanged. */
+    @media screen and (min-width:768px) and (max-width:1366px) and (pointer:coarse) and (orientation:portrait){
+      .tablet-contact-live{
+        grid-template-rows:minmax(0,1fr) clamp(135px,17vh,185px)!important;
+      }
+      .tablet-contact-main{
+        grid-template-columns:1fr!important;
+        grid-template-rows:minmax(0,42%) minmax(0,58%)!important;
+      }
+      .tablet-contact-visual{
+        background-position:center 52%!important;
+      }
+      .tablet-contact-copy{
+        top:7%!important;
+        left:6%!important;
+        right:6%!important;
+      }
+      .tablet-contact-copy h1{
+        margin-bottom:12px!important;
+        font-size:clamp(50px,7.6vw,82px)!important;
+        line-height:.92!important;
+        max-width:7.2em!important;
+      }
+      .tablet-contact-copy p{
+        max-width:31em!important;
+        font-size:clamp(14px,1.85vw,20px)!important;
+        line-height:1.35!important;
+      }
+      .tablet-contact-panel{
+        align-items:center!important;
+        padding:clamp(12px,1.6vh,20px) 6vw!important;
+      }
+      .tablet-contact-form{
+        grid-template-columns:1fr 1fr!important;
+        gap:clamp(7px,.85vh,11px) 14px!important;
+      }
+      .tablet-contact-form label{
+        gap:4px!important;
+        font-size:clamp(11px,1.35vw,14px)!important;
+      }
+      .tablet-contact-form input,
+      .tablet-contact-form select,
+      .tablet-contact-form textarea{
+        min-height:34px!important;
+        padding:7px 10px!important;
+        font-size:clamp(11px,1.3vw,14px)!important;
+      }
+      .tablet-contact-form textarea{
+        height:clamp(52px,6.2vh,78px)!important;
+        min-height:52px!important;
+      }
+      .tablet-contact-form button{
+        min-height:38px!important;
+      }
+      .tablet-contact-footer{
+        padding:7px 20px 9px!important;
+      }
+      .tablet-social-row{
+        margin:5px 0 2px!important;
+      }
+    }
+
+
+    /* 2026-08-18 — Contact mobile header matched exactly to the approved mobile header reference. Mobile only. */
+    @media (max-width:760px){
+      .mobile-contact-art{padding-top:92px!important;}
+      .mobile-contact-header-exact{
+        display:flex!important;
+        position:fixed!important;
+        z-index:10000!important;
+        top:0!important;
+        left:0!important;
+        right:0!important;
+        width:100%!important;
+        box-sizing:border-box!important;
+        height:92px!important;
+        min-height:92px!important;
+        max-height:92px!important;
+        align-items:center!important;
+        justify-content:space-between!important;
+        padding:8px 18px 8px 16px!important;
+        overflow:hidden!important;
+        background:#050505!important;
+        line-height:normal!important;
+      }
+      .mobile-contact-header-exact>img{display:none!important;}
+      .mobile-contact-logo-standard{
+        display:block!important;
+        width:min(48vw,330px)!important;
+        height:auto!important;
+        margin:0!important;
+        padding:0!important;
+        line-height:0!important;
+        flex:0 0 auto!important;
+      }
+      .mobile-contact-logo-standard img{
+        display:block!important;
+        width:100%!important;
+        height:auto!important;
+        margin:0!important;
+        object-fit:contain!important;
+      }
+      .mobile-contact-header-exact .mobile-menu-hotspot{
+        display:block!important;
+        position:relative!important;
+        right:auto!important;
+        top:auto!important;
+        flex:0 0 54px!important;
+        width:54px!important;
+        height:54px!important;
+        border:0!important;
+        background:transparent!important;
+        padding:0!important;
+        cursor:pointer!important;
+      }
+      .mobile-contact-header-exact .mobile-menu-hotspot::before,
+      .mobile-contact-header-exact .mobile-menu-hotspot::after,
+      .mobile-contact-header-exact .mobile-menu-hotspot span{
+        display:block!important;
+        content:""!important;
+        position:absolute!important;
+        left:7px!important;
+        right:7px!important;
+        height:5px!important;
+        border-radius:4px!important;
+        background:#f4f4f4!important;
+        box-shadow:0 1px 3px rgba(255,255,255,.25)!important;
+      }
+      .mobile-contact-header-exact .mobile-menu-hotspot::before{top:13px!important;}
+      .mobile-contact-header-exact .mobile-menu-hotspot span{top:25px!important;}
+      .mobile-contact-header-exact .mobile-menu-hotspot::after{top:37px!important;}
+      .mobile-contact-drawer{top:92px!important;}
+    }
+
+    /* 2026-09-04 — Desktop Contact only:
+       mask the stray baked-in horizontal line that can peek out beside CONTACT.
+       The normal live CONTACT underline stays unchanged.
+       Tablet and mobile are untouched. */
+    @media screen and (min-width:1201px) and (pointer:fine){
+      .contact-screen::after{
+        content:"";
+        position:absolute;
+        z-index:3;
+        left:72.45%;
+        top:6.9%;
+        width:6.9%;
+        height:1.0%;
+        min-height:6px;
+        background:#050505;
+        pointer-events:none;
+      }
+    }
+
+</style>
+</head>
+<body>
+
+  <!-- Mobile Contact page: native controls prevent the old screenshot/form overlay. -->
+  <main class="mobile-contact-art" aria-label="B.G.E. Aerials mobile contact page">
+    <header class="mobile-contact-header mobile-contact-header-exact">
+      <a class="mobile-contact-logo-standard" href="index.html" aria-label="B.G.E. Aerials home">
+        <img src="assets/contact-logo-clean.png" alt="B.G.E. Aerials">
+      </a>
+      <button class="mobile-menu-button mobile-menu-hotspot" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </header>
+
+    <section class="mobile-contact-hero mobile-contact-hero-exact" aria-label="Let's elevate your vision">
+      <img src="assets/contact-mobile-hero-exact.png" alt="Let's elevate your vision. B.G.E. Aerials aerial view.">
+    </section>
+
+    <section class="mobile-form-section mobile-form-section-exact">
+      <form class="mobile-live-form" action="https://formsubmit.co/ajax/cory@bgeaerials.com" method="POST">
+        <input type="hidden" name="_subject" value="New B.G.E. Aerials project inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <label class="honeypot">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+
+        <div class="form-group"><label for="m-first">First Name <small>(required)</small></label><input id="m-first" class="mfield" type="text" name="First Name" placeholder="First Name" autocomplete="given-name" required></div>
+        <div class="form-group"><label for="m-last">Last Name <small>(required)</small></label><input id="m-last" class="mfield" type="text" name="Last Name" placeholder="Last Name" autocomplete="family-name" required></div>
+        <div class="form-group full"><label for="m-phone">Phone <small>(required)</small></label><input id="m-phone" class="mfield" type="tel" name="Phone" placeholder="Phone Number" autocomplete="tel" required></div>
+        <div class="form-group full"><label for="m-email">Email <small>(required)</small></label><div class="mobile-email-shell"><input id="m-email" class="mfield" type="email" name="Email" placeholder="Email Address Type" autocomplete="email" required></div></div>
+        <div class="form-group full"><label for="m-project-type">Project Type <small>(required)</small></label><select id="m-project-type" class="mfield" name="Project Type" required>
+          <option value="" selected disabled>Select Project Type</option>
+          <option>Aerial Photography</option>
+          <option>Aerial Videography</option>
+          <option>Commercial Media</option>
+          <option>Real Estate</option>
+          <option>Event Coverage</option>
+          <option>Other</option>
+        </select></div>
+        <div class="form-group full"><label for="m-details">Project Details <small>(required)</small></label><textarea id="m-details" class="mfield" name="Project Details" placeholder="Tell us about your project..." required></textarea></div>
+        <button class="msubmit" type="submit">Send Message</button>
+        <p class="mstatus" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <footer class="mobile-contact-footer mobile-contact-footer-exact">
+      <img src="assets/contact-mobile-footer-exact.png" alt="B.G.E. Aerials socials and copyright">
+      <div class="mobile-social-hotspots" aria-label="B.G.E. Aerials social media">
+        <a class="sx" href="https://x.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on X"></a>
+        <a class="si" href="https://www.instagram.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Instagram"></a>
+        <a class="st" href="https://www.tiktok.com/@bgeaerials" rel="external noopener noreferrer" aria-label="B.G.E. Aerials on TikTok"></a>
+        <a class="sf" href="https://www.facebook.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Facebook"></a>
+        <a class="sy" href="https://www.youtube.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on YouTube"></a>
+      </div>
+    </footer>
+  </main>
+
+  <nav class="mobile-contact-drawer" aria-label="Mobile navigation">
+    <button class="mobile-contact-close" type="button" aria-label="Close menu">×</button>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="works.html">Works</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+
+  <header class="desktop-standard-header" aria-label="Desktop site header">
+    <div class="desktop-standard-logo" aria-label="B.G.E. Aerials">
+      <img src="assets/contact-logo-clean.png" alt="B.G.E. Aerials">
+    </div>
+    <nav class="desktop-standard-nav" aria-label="Primary navigation">
+      <a href="index.html">HOME</a>
+      <a href="services.html">SERVICES</a>
+      <a href="works.html">WORKS</a>
+      <a href="about.html">ABOUT</a>
+      <a class="active" href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+
+  <main class="tablet-contact-live" aria-label="B.G.E. Aerials tablet contact page">
+    <section class="tablet-contact-main">
+      <div class="tablet-contact-visual">
+        <div class="tablet-contact-copy">
+          <h1>Let’s Elevate<br>Your Vision.</h1>
+          <p>Where vision meets elevation. Partner with us to create breathtaking aerial experiences that leave a lasting impression.</p>
+        </div>
+      </div>
+      <div class="tablet-contact-panel">
+        <form class="tablet-contact-form" action="https://formsubmit.co/ajax/cory@bgeaerials.com" method="POST">
+          <input type="hidden" name="_subject" value="New B.G.E. Aerials project inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <label>First Name <span><small>(required)</small></span><input type="text" name="First Name" placeholder="First Name" autocomplete="given-name" required></label>
+          <label>Last Name <span><small>(required)</small></span><input type="text" name="Last Name" placeholder="Last Name" autocomplete="family-name" required></label>
+          <label class="full">Phone <span><small>(required)</small></span><input type="tel" name="Phone" placeholder="Phone Number" autocomplete="tel" required></label>
+          <label class="full">Email <span><small>(required)</small></span><input type="email" name="Email" placeholder="Email Address" autocomplete="email" required></label>
+          <label class="full">Project Type <span><small>(required)</small></span><select name="Project Type" required>
+            <option value="" selected disabled>Select Project Type</option><option>Aerial Photography</option><option>Aerial Videography</option><option>Commercial Media</option><option>Real Estate</option><option>Event Coverage</option><option>Other</option>
+          </select></label>
+          <label class="full">Project Details <span><small>(required)</small></span><textarea name="Project Details" placeholder="Tell us about your project..." required></textarea></label>
+          <button type="submit">Send Message</button>
+          <p class="tstatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+    <footer class="tablet-contact-footer">
+      <div class="socials-title">SOCIALS</div>
+      <div class="tablet-social-row">
+        <a href="https://x.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="data:image/png;base64,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" alt=""></a>
+        <a href="https://www.instagram.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="data:image/png;base64,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" alt=""></a>
+        <a href="https://www.tiktok.com/@bgeaerials" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="data:image/png;base64,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" alt=""></a>
+        <a href="https://www.facebook.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="data:image/png;base64,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" alt=""></a>
+        <a href="https://www.youtube.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="data:image/png;base64,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" alt=""></a>
+      </div>
+      <div class="tablet-contact-handle">@BGEAERIALS</div>
+      <div class="tablet-contact-copyright">© 2026 B.G.E. Aerials. All Rights Reserved.</div>
+    </footer>
+  </main>
+
+  <main class="contact-screen" aria-label="B.G.E. Aerials contact page">
+    <img src="assets/contact-desktop-socials-centered.webp?v=20260803-socials-centered" alt="B.G.E. Aerials contact page with Lake Hopatcong aerial view and contact form">
+
+    <a class="hotspot nav home" href="index.html" aria-label="Home">Home</a>
+    <a class="hotspot nav services" href="services.html" aria-label="Services">Services</a>
+    <a class="hotspot nav works" href="works.html" aria-label="Works">Works</a>
+    <a class="hotspot nav about" href="about.html" aria-label="About">About</a>
+    <a class="hotspot nav contact" href="contact.html" aria-label="Contact">Contact</a>
+
+    <form class="contact-form" action="https://formsubmit.co/ajax/cory@bgeaerials.com" method="POST">
+      <input type="hidden" name="_subject" value="New B.G.E. Aerials project inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <label class="honeypot">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+
+      <input class="field first-name" type="text" name="First Name" placeholder="First Name" autocomplete="given-name" required aria-label="First Name">
+      <input class="field last-name" type="text" name="Last Name" placeholder="Last Name" autocomplete="family-name" required aria-label="Last Name">
+      <input class="field phone" type="tel" name="Phone" placeholder="Phone Number" autocomplete="tel" required aria-label="Phone Number">
+      <input class="field email" type="email" name="Email" placeholder="Email Address" autocomplete="email" required aria-label="Email Address">
+      <select class="field project-type" name="Project Type" required aria-label="Project Type">
+        <option value="" selected disabled>Select Project Type</option>
+        <option>Aerial Photography</option>
+        <option>Aerial Videography</option>
+        <option>Commercial Media</option>
+        <option>Real Estate</option>
+        <option>Event Coverage</option>
+        <option>Other</option>
+      </select>
+      <textarea class="field details" name="Project Details" placeholder="Tell us about your project..." required aria-label="Project Details"></textarea>
+      <button class="submit-button" type="submit">Send Message</button>
+      <p class="status" aria-live="polite"></p>
+    </form>
+
+    <a class="hotspot social-x" href="https://x.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on X">X</a>
+    <a class="hotspot social-instagram" href="https://www.instagram.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Instagram">Instagram</a>
+    <a class="hotspot social-tiktok" href="https://www.tiktok.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on TikTok">TikTok</a>
+    <a class="hotspot social-facebook" href="https://www.facebook.com/BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on Facebook">Facebook</a>
+    <a class="hotspot social-youtube" href="https://www.youtube.com/@BGEAerials" target="_blank" rel="noopener noreferrer" aria-label="B.G.E. Aerials on YouTube">YouTube</a>
+  </main>
+
+
+  <section class="success-screen" id="successScreen" aria-live="polite" aria-hidden="true">
+    <div class="success-card">
+      <img loading="lazy" decoding="async" class="success-logo" src="assets/contact-logo-clean.png" alt="B.G.E. Aerials">
+      <h1 class="success-title">✓ Message Sent Successfully!</h1>
+      <p class="success-copy">Thanks for contacting <strong>B.G.E. Aerials</strong>.</p>
+      <p class="success-copy">Cory will personally review your inquiry and respond within <strong>24 hours</strong>.</p>
+      <p class="success-copy">I appreciate the opportunity to work with you and look forward to discussing your project.</p>
+      <a class="success-home" href="index.html">Return Home</a>
+    </div>
+  </section>
+
+  <script>
+    const contactForm = document.querySelector('.contact-form');
+    const statusMessage = contactForm.querySelector('.status');
+    const submitButton = contactForm.querySelector('.submit-button');
+    const successScreen = document.getElementById('successScreen');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusMessage.textContent = '';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) {
+          throw new Error('Submission failed');
+        }
+
+        contactForm.reset();
+        successScreen.classList.add('is-visible');
+        successScreen.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      } catch (error) {
+        statusMessage.textContent = 'Your message could not be sent. Please try again.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
+    });
+  </script>
+
+  <script>
+    (function(){
+      const menuButton=document.querySelector('.mobile-menu-button');
+
+      const tabletForm=document.querySelector('.tablet-contact-form');
+      if(tabletForm){
+        const tabletStatus=tabletForm.querySelector('.tstatus');
+        tabletForm.addEventListener('submit',async(e)=>{
+          e.preventDefault();
+          const btn=tabletForm.querySelector('button[type="submit"]');
+          if(btn){btn.disabled=true;btn.textContent='Sending…';}
+          try{
+            const r=await fetch(tabletForm.action,{method:'POST',body:new FormData(tabletForm),headers:{Accept:'application/json'}});
+            if(!r.ok) throw new Error('send failed');
+            tabletForm.reset();
+            window.location.href='thank-you.html';
+          }catch(err){
+            if(tabletStatus)tabletStatus.textContent='There was a problem sending your message. Please try again.';
+            if(btn){btn.disabled=false;btn.textContent='Send Message';}
+          }
+        });
+      }
+
+      const drawer=document.querySelector('.mobile-contact-drawer');
+      const closeButton=document.querySelector('.mobile-contact-close');
+      function setMenu(open){
+        if(!menuButton||!drawer)return;
+        drawer.classList.toggle('open',open);
+        menuButton.setAttribute('aria-expanded',String(open));
+      }
+      menuButton?.addEventListener('click',()=>setMenu(true));
+      closeButton?.addEventListener('click',()=>setMenu(false));
+      drawer?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+      const form=document.querySelector('.mobile-live-form');
+      if(form){
+        const status=form.querySelector('.mstatus');
+        const button=form.querySelector('.msubmit');
+        form.addEventListener('submit',async(e)=>{
+          e.preventDefault(); status.textContent=''; button.disabled=true; button.textContent='Sending...';
+          try{
+            const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+            if(!response.ok) throw new Error('Submission failed');
+            form.reset();
+            const success=document.getElementById('successScreen');
+            success?.classList.add('is-visible');
+            success?.setAttribute('aria-hidden','false');
+            document.body.style.overflow='hidden';
+          }catch(err){
+            status.textContent='Your message could not be sent. Please try again.';
+            button.disabled=false; button.textContent='Send Message';
+          }
+        });
+      }
+    })();
+  </script>
+
+
+<script>
+  // Mobile TikTok link: direct navigation fallback for touch browsers.
+  (function () {
+    var tiktok = document.querySelector('.mobile-social-hotspots .st');
+    if (!tiktok) return;
+    var url = 'https://www.tiktok.com/@bgeaerials';
+    tiktok.setAttribute('href', url);
+    tiktok.addEventListener('click', function (event) {
+      event.preventDefault();
+      window.location.assign(url);
+    }, {passive:false});
+  })();
+</script>
+</body>
+</html>
