@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="B.G.E. Aerials provides professional drone photography, cinematic video, and aerial media across North Jersey and the Tri-State Area.">
+  <title>Home | B.G.E. Aerials</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;min-height:100%;background:#000}
+    body{font-family:Arial,Helvetica,sans-serif}
+    .desktop-home{display:none}
+    .mobile-home{display:block;position:relative;width:100%;min-height:100vh;background:#000}
+    .mobile-home-header{height:92px;background:#050505;display:flex;align-items:center;justify-content:space-between;padding:8px 18px 8px 16px}
+    .mobile-logo-home{display:block;width:min(48vw,330px);line-height:0}
+    .mobile-logo-home img{display:block;width:100%;height:auto}
+    .mobile-home-art-wrap{position:relative;width:100%;overflow:hidden;background:#000}
+    .mobile-home-art{display:block;width:100%;height:auto;border:0;margin:0}
+    .mobile-menu-button{position:relative;width:54px;height:54px;border:0;background:transparent;padding:0;cursor:pointer;z-index:51}
+    .mobile-menu-button span,.mobile-menu-button::before,.mobile-menu-button::after{content:"";position:absolute;left:7px;right:7px;height:5px;border-radius:4px;background:#f4f4f4;box-shadow:0 1px 3px rgba(255,255,255,.25)}
+    .mobile-menu-button::before{top:13px}.mobile-menu-button span{top:25px}.mobile-menu-button::after{top:37px}
+    .mobile-nav{display:none;position:fixed;z-index:49;inset:0;background:rgba(0,0,0,.96);padding:110px 28px 28px}
+    .mobile-nav.open{display:flex;flex-direction:column;align-items:center;gap:26px}
+    .mobile-nav a{color:#fff;text-decoration:none;font-size:22px;letter-spacing:.12em;font-weight:700}
+
+    .desktop-standard-header{display:none}
+    @media (min-width:761px){
+      html,body{height:100%;overflow:hidden}
+      .mobile-home,.mobile-nav{display:none!important}
+      .desktop-standard-header{
+        display:flex;position:fixed;inset:0 0 auto 0;z-index:100000;
+        width:100vw;height:70px;background:#050505;
+        align-items:center;justify-content:center;
+      }
+      .desktop-standard-logo{
+        position:absolute;left:28px;top:7px;width:210px;height:56px;
+        overflow:hidden;pointer-events:none;user-select:none;
+      }
+      .desktop-standard-logo img{
+        display:block;width:100%;height:56px;object-fit:contain;object-position:left center;
+      }
+      .desktop-standard-nav{display:flex;align-items:center;justify-content:center;gap:88px;height:70px}
+      .desktop-standard-nav a{
+        position:relative;display:flex;align-items:center;height:70px;
+        color:#d9d9d9;text-decoration:none;text-transform:uppercase;
+        font-family:"Arial Narrow",Arial,Helvetica,sans-serif;
+        font-size:21px;font-weight:500;line-height:70px;letter-spacing:.08em;white-space:nowrap;
+        background:linear-gradient(180deg,#ffffff 0%,#d5d5d5 35%,#858585 52%,#f3f3f3 72%,#b8b8b8 100%);
+        -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+        text-shadow:0 1px 1px rgba(255,255,255,.20),0 2px 4px rgba(0,0,0,.65);
+      }
+      .desktop-standard-nav a::after{
+        content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;
+        background:linear-gradient(90deg,#777,#fff,#777);transform:scaleX(0);
+      }
+      .desktop-standard-nav a:hover::after,
+      .desktop-standard-nav a.active::after{transform:scaleX(1)}
+      .desktop-home{display:block;position:fixed;left:0;right:0;top:70px;bottom:0;overflow:hidden;background:#000}
+      .desktop-art{display:block;width:100%;height:100%;object-fit:fill;border:0;pointer-events:none;user-select:none}
+    }  
+    @media (max-width:760px){
+      :root{--bge-mobile-header-height:92px}
+      .mobile-home-header{
+        position:fixed!important;
+        top:0!important;
+        left:0!important;
+        right:0!important;
+        width:100%!important;
+        height:var(--bge-mobile-header-height)!important;
+        z-index:10000!important;
+        margin:0!important;
+        transform:none!important;
+      }
+      .mobile-home{
+        padding-top:var(--bge-mobile-header-height)!important;
+      }
+      .mobile-nav{
+        top:var(--bge-mobile-header-height)!important;
+        padding-top:28px!important;
+        z-index:9999!important;
+      }
+    }
+
+    @media (max-width:760px){
+      .mobile-nav{
+        position:fixed!important;left:0!important;right:0!important;top:92px!important;bottom:0!important;
+        width:100%!important;height:auto!important;padding:50px 24px 30px!important;margin:0!important;
+        background:rgba(0,0,0,.90)!important;z-index:9999!important;
+      }
+      .mobile-nav.open{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:34px!important}
+      .mobile-nav a{padding:0!important;margin:0!important;color:#fff!important;text-decoration:none!important;text-transform:uppercase!important;font-family:Arial,Helvetica,sans-serif!important;font-size:22px!important;font-weight:700!important;line-height:1.35!important;letter-spacing:.12em!important;text-align:center!important}
+    }
+
+    /* Desktop homepage: use the exact same shared header as every other page. */
+    .desktop-home-hotspots{display:none!important}
+    @media (min-width:1200px) and (min-aspect-ratio:3/2) and (hover:hover) and (pointer:fine){
+      .desktop-standard-header{display:flex!important}
+      .desktop-home{display:block!important;position:fixed!important;left:0!important;right:0!important;top:70px!important;bottom:0!important;width:100vw!important;height:auto!important;overflow:hidden!important;background:#000!important}
+      .desktop-home .desktop-art{content:url('assets/home-approved.webp');width:100%!important;height:100%!important;object-fit:fill!important;object-position:center!important}
+    }
+
+  </style>
+</head>
+<body>
+  <header class="desktop-standard-header" aria-label="Desktop site header">
+    <div class="desktop-standard-logo" aria-label="B.G.E. Aerials">
+      <img src="assets/desktop-about-logo-full-transparent.png" alt="B.G.E. Aerials">
+    </div>
+    <nav class="desktop-standard-nav" aria-label="Primary navigation">
+      <a class="active" href="index.html">HOME</a>
+      <a href="services.html">SERVICES</a>
+      <a href="works.html">WORKS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <main class="desktop-home" aria-label="B.G.E. Aerials homepage">
+    <img class="desktop-art" src="assets/home-approved.webp?v=20260803-header-match" alt="B.G.E. Aerials — Precision Above, Excellence Below" loading="eager" fetchpriority="high" decoding="async">
+    <nav class="desktop-home-hotspots" aria-label="Desktop homepage navigation">
+      <a class="home" href="index.html" aria-label="Home"></a>
+      <a class="services" href="services.html" aria-label="Services"></a>
+      <a class="works" href="works.html" aria-label="Works"></a>
+      <a class="about" href="about.html" aria-label="About"></a>
+      <a class="contact" href="contact.html" aria-label="Contact"></a>
+    </nav>
+  </main>
+
+  <main class="mobile-home" aria-label="B.G.E. Aerials mobile homepage">
+    <header class="mobile-home-header">
+      <div class="mobile-logo-home" aria-label="B.G.E. Aerials"><img src="assets/contact-logo-clean.png" alt="B.G.E. Aerials"></div>
+      <button class="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+    </header>
+    <div class="mobile-home-art-wrap">
+      <img class="mobile-home-art" src="assets/home-mobile-approved.webp?v=20260807-period-final" alt="B.G.E. Aerials — Precision Above, Excellence Below">
+    </div>
+  </main>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">HOME</a><a href="services.html">SERVICES</a><a href="works.html">WORKS</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a>
+  </nav>
+  <script>
+    const button=document.querySelector('.mobile-menu-button');
+    const nav=document.querySelector('.mobile-nav');
+    button.addEventListener('click',()=>{const open=nav.classList.toggle('open');button.setAttribute('aria-expanded',String(open));});
+  </script>
+</body>
+</html>

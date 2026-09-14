@@ -1,0 +1,38 @@
+B.G.E. AERIALS — APPROVED VERSION MANIFEST
+==========================================
+
+CONSOLIDATED: 2026-09-11
+
+BASELINE
+--------
+Complete approved cross-device website package through 2026-09-04.
+
+CURRENT APPROVED ADDITIONS
+--------------------------
+1. CONTACT — tablet portrait only
+   - Approved Lake Hopatcong hero photo
+   - Existing tablet header unchanged
+   - Live headline/copy over hero
+   - Live contact form
+   - Contact Socials footer retained
+
+2. SERVICES — tablet portrait only
+   - Full-screen portrait layout
+   - Existing tablet header unchanged
+   - HOME / SERVICES / WORKS / ABOUT / CONTACT navigation retained
+   - Four service cards visible in portrait
+   - No Socials section
+   - No 2026 copyright footer
+
+PRESERVED WITHOUT NEW CHANGES
+-----------------------------
+- Home: desktop / mobile / tablets
+- Works: desktop / mobile / tablets
+- About: desktop / mobile / tablets
+- Services: desktop / mobile / tablet landscape
+- Contact: desktop / mobile / tablet landscape
+
+REFERENCE FILES
+---------------
+reference/APPROVED-contact-tablet-portrait.png
+reference/APPROVED-services-tablet-portrait.png
