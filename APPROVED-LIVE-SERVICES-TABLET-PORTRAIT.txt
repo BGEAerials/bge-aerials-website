@@ -1,0 +1,17 @@
+B.G.E. AERIALS — LIVE SERVICES TABLET PORTRAIT
+================================================
+
+This update removes the screenshot-style Services portrait tablet presentation
+and restores a live HTML/CSS layout for tablet portrait.
+
+What this changes:
+- Services page in tablet portrait no longer presents as a screenshot image.
+- The page uses the real hero image, live text, and live service-card layout.
+- Scrolling remains disabled in tablet portrait.
+- Unified metallic header styling remains in place.
+
+What stays unchanged:
+- Desktop
+- Mobile
+- Tablet landscape
+- All other pages
