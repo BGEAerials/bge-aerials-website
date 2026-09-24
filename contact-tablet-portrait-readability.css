@@ -1,0 +1,76 @@
+
+/* ============================================================
+   B.G.E. AERIALS — CONTACT TABLET PORTRAIT READABILITY FIX
+   IMAGE-POP VERSION
+   Scope: Contact page + tablet portrait ONLY.
+
+   Purpose:
+   - keep the supporting hero paragraph readable
+   - let the image retain more contrast and saturation
+   - avoid a big white rectangle or heavy wash over the image
+   - preserve the hero image, metallic header, form, footer, and layout
+   - change nothing on any other page or orientation
+   ============================================================ */
+
+@media screen and (min-width:768px) and (max-width:1366px) and (pointer:coarse) and (orientation:portrait) {
+
+  /* Much lighter broad overlay so the image keeps more punch. */
+  .tablet-contact-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(247,243,238,.30) 0%,
+        rgba(247,243,238,.24) 18%,
+        rgba(247,243,238,.17) 32%,
+        rgba(247,243,238,.10) 45%,
+        rgba(247,243,238,.05) 57%,
+        rgba(247,243,238,.015) 68%,
+        rgba(247,243,238,0) 78%
+      );
+  }
+
+  .tablet-contact-copy{
+    position:absolute !important;
+    z-index:2 !important;
+    top:8% !important;
+    left:5.7% !important;
+    right:37% !important;
+    color:#050505 !important;
+    text-shadow:none !important;
+  }
+
+  .tablet-contact-copy h1{
+    margin-bottom:14px !important;
+    color:#050505 !important;
+    text-shadow:0 1px 0 rgba(255,255,255,.18) !important;
+  }
+
+  /* No rectangle behind the paragraph. Instead use a subtle localized glow */
+  /* via text-shadow so the image still pops through. */
+  .tablet-contact-copy p{
+    display:block !important;
+    margin:0 !important;
+    padding:0 !important;
+    max-width:28.5em !important;
+    color:#141414 !important;
+    background:transparent !important;
+    border-radius:0 !important;
+    font-size:clamp(15px,1.9vw,20px) !important;
+    font-weight:700 !important;
+    line-height:1.42 !important;
+    text-shadow:
+      0 1px 0 rgba(255,255,255,.20),
+      0 0 10px rgba(247,243,238,.38),
+      0 0 20px rgba(247,243,238,.24) !important;
+    box-decoration-break:clone !important;
+    -webkit-box-decoration-break:clone !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    box-shadow:none !important;
+  }
+}

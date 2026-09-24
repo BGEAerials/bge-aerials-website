@@ -1,0 +1,25 @@
+B.G.E. AERIALS — TABLET PORTRAIT HEADER MATCH
+================================================
+
+All tablet-portrait headers now follow the approved Services-page header style.
+
+Applied to tablet portrait only:
+- Home
+- Services
+- Works
+- About
+- Contact
+- 404
+
+Intent:
+- match the Services-page portrait header look
+- black header bar
+- left logo placement
+- white navigation labels
+- active page underline
+
+Unchanged:
+- Desktop
+- Mobile
+- Tablet landscape
+- page body content outside the header system unless needed for top offset
