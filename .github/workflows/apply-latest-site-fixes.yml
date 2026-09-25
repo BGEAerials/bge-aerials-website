@@ -2,7 +2,8 @@ name: Apply latest BGE site fixes
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - ".github/workflows/apply-latest-site-fixes.yml"
 
@@ -28,167 +29,120 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from PIL import Image
-
-          # 1) Tablet Contact: match portrait LET'S spacing to landscape.
+          
+          # Tablet Contact: match portrait LET'S spacing to landscape.
           p = Path("contact.html")
           s = p.read_text(encoding="utf-8")
           s = s.replace("letter-spacing:-.025em!important;", "letter-spacing:0!important;")
           p.write_text(s, encoding="utf-8")
-
-          # 2) Tablet Contact footer: preserve metallic SOCIALS, stretch @BGEAERIALS,
-          #    and keep the larger social icons in both tablet orientations.
-          Path("contact-tablet-metallic-socials.css").write_text(r'''/* ============================================================
-   B.G.E. AERIALS — CONTACT TABLET METALLIC "SOCIALS"
-   Scope: Contact page + tablets only, portrait and landscape.
-
-   Matches the silver-metallic typography used throughout the
-   site while enlarging the social icons for better balance on
-   tablets. Desktop and mobile remain untouched.
-   ============================================================ */
-
-@media screen and (min-width:768px) and (max-width:1366px) and (pointer:coarse) {
-
-  .tablet-contact-footer .socials-title{
-    font-family:Impact,"Arial Narrow Bold","Arial Narrow",Arial,sans-serif !important;
-    font-weight:400 !important;
-    letter-spacing:.13em !important;
-    color:#d8d8d8 !important;
-
-    background:
-      linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #d4d4d4 22%,
-        #8b8b8b 46%,
-        #f3f3f3 68%,
-        #a7a7a7 100%
-      ) !important;
-
-    -webkit-background-clip:text !important;
-    background-clip:text !important;
-    -webkit-text-fill-color:transparent !important;
-
-    text-shadow:
-      0 1px 0 rgba(255,255,255,.16),
-      0 2px 4px rgba(0,0,0,.82) !important;
-  }
-
-  .tablet-contact-footer .socials-title::before,
-  .tablet-contact-footer .socials-title::after{
-    background:
-      linear-gradient(
-        90deg,
-        #666 0%,
-        #f8f8f8 48%,
-        #8a8a8a 100%
-      ) !important;
-    box-shadow:0 0 6px rgba(255,255,255,.18) !important;
-  }
-
-  .tablet-contact-footer .tablet-contact-handle{
-    display:inline-block !important;
-    font-family:Impact,"Arial Narrow Bold","Arial Narrow",Arial,sans-serif !important;
-    font-weight:400 !important;
-    letter-spacing:.13em !important;
-    text-transform:uppercase !important;
-    color:#d8d8d8 !important;
-    transform:scaleX(1.18) !important;
-    transform-origin:center center !important;
-
-    background:
-      linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #d7d7d7 20%,
-        #8c8c8c 45%,
-        #f5f5f5 67%,
-        #a8a8a8 100%
-      ) !important;
-
-    -webkit-background-clip:text !important;
-    background-clip:text !important;
-    -webkit-text-fill-color:transparent !important;
-
-    text-shadow:
-      0 1px 0 rgba(255,255,255,.16),
-      0 2px 4px rgba(0,0,0,.82) !important;
-  }
-
-  .tablet-contact-footer .tablet-social-row{
-    gap:clamp(28px,5.5vw,70px) !important;
-    margin:8px 0 5px !important;
-  }
-
-  .tablet-contact-footer .tablet-social-row a{
-    width:44px !important;
-    height:44px !important;
-  }
-
-  .tablet-contact-footer .tablet-social-row img{
-    display:block !important;
-    width:auto !important;
-    height:auto !important;
-    max-width:38px !important;
-    max-height:38px !important;
-    object-fit:contain !important;
-  }
-}
-''', encoding="utf-8")
-
-          # 3) Mobile Contact hero: remove the black decorative line under
-          #    "leave a lasting impression" without changing the rest of the artwork.
+          
+          # Tablet Contact footer: metallic SOCIALS, stretched metallic @BGEAERIALS,
+          # and larger social icons in portrait and landscape.
+          css = r'''/* ============================================================
+             B.G.E. AERIALS — CONTACT TABLET METALLIC "SOCIALS"
+             Scope: Contact page + tablets only, portrait and landscape.
+             ============================================================ */
+          
+          @media screen and (min-width:768px) and (max-width:1366px) and (pointer:coarse) {
+            .tablet-contact-footer .socials-title{
+              font-family:Impact,"Arial Narrow Bold","Arial Narrow",Arial,sans-serif !important;
+              font-weight:400 !important;
+              letter-spacing:.13em !important;
+              color:#d8d8d8 !important;
+              background:linear-gradient(180deg,#fff 0%,#d4d4d4 22%,#8b8b8b 46%,#f3f3f3 68%,#a7a7a7 100%) !important;
+              -webkit-background-clip:text !important;
+              background-clip:text !important;
+              -webkit-text-fill-color:transparent !important;
+              text-shadow:0 1px 0 rgba(255,255,255,.16),0 2px 4px rgba(0,0,0,.82) !important;
+            }
+            .tablet-contact-footer .socials-title::before,
+            .tablet-contact-footer .socials-title::after{
+              background:linear-gradient(90deg,#666 0%,#f8f8f8 48%,#8a8a8a 100%) !important;
+              box-shadow:0 0 6px rgba(255,255,255,.18) !important;
+            }
+            .tablet-contact-footer .tablet-contact-handle{
+              display:inline-block !important;
+              font-family:Impact,"Arial Narrow Bold","Arial Narrow",Arial,sans-serif !important;
+              font-weight:400 !important;
+              letter-spacing:.13em !important;
+              text-transform:uppercase !important;
+              color:#d8d8d8 !important;
+              transform:scaleX(1.18) !important;
+              transform-origin:center center !important;
+              background:linear-gradient(180deg,#fff 0%,#d7d7d7 20%,#8c8c8c 45%,#f5f5f5 67%,#a8a8a8 100%) !important;
+              -webkit-background-clip:text !important;
+              background-clip:text !important;
+              -webkit-text-fill-color:transparent !important;
+              text-shadow:0 1px 0 rgba(255,255,255,.16),0 2px 4px rgba(0,0,0,.82) !important;
+            }
+            .tablet-contact-footer .tablet-social-row{
+              gap:clamp(28px,5.5vw,70px) !important;
+              margin:8px 0 5px !important;
+            }
+            .tablet-contact-footer .tablet-social-row a{
+              width:44px !important;
+              height:44px !important;
+            }
+            .tablet-contact-footer .tablet-social-row img{
+              display:block !important;
+              width:auto !important;
+              height:auto !important;
+              max-width:38px !important;
+              max-height:38px !important;
+              object-fit:contain !important;
+            }
+          }
+          '''
+          Path("contact-tablet-metallic-socials.css").write_text(css, encoding="utf-8")
+          
+          # Mobile Contact hero: remove black line under "leave a lasting impression."
           p = Path("assets/contact-mobile-hero-exact.png")
           im = Image.open(p).convert("RGB")
-          patch = im.crop((61, 330, 164, 337)).resize((103, 7), Image.Resampling.BICUBIC)
-          im.paste(patch, (61, 337))
-          im.save(p, optimize=True)
-
-          # 4) Mobile About: remove the black line under "WITHOUT COMPROMISE."
+          patch = im.crop((61,330,164,337)).resize((103,7), Image.Resampling.BICUBIC)
+          im.paste(patch,(61,337))
+          im.save(p,optimize=True)
+          
+          # Mobile About: remove black line under "WITHOUT COMPROMISE."
           p = Path("assets/about-mobile-bg.webp")
           im = Image.open(p).convert("RGB")
-          patch = im.crop((30, 346, 136, 356)).resize((106, 10), Image.Resampling.BICUBIC)
-          im.paste(patch, (30, 356))
-          im.save(p, "WEBP", quality=95, method=6)
-
-          # 5) Mobile Contact footer: give SOCIALS the same silver-metallic
-          #    treatment as the approved tablet version. Leave icons/handle/copyright intact.
+          patch = im.crop((30,346,136,356)).resize((106,10), Image.Resampling.BICUBIC)
+          im.paste(patch,(30,356))
+          im.save(p,"WEBP",quality=95,method=6)
+          
+          # Mobile Contact footer: metallic SOCIALS matching tablet.
           p = Path("assets/contact-mobile-footer-exact.png")
           im = Image.open(p).convert("RGB")
           pix = im.load()
-          w, h = im.size
-          x0, x1 = int(w * .37), int(w * .63)
-          y0, y1 = int(h * .07), int(h * .31)
-
+          w,h = im.size
+          x0,x1 = int(w*.37), int(w*.63)
+          y0,y1 = int(h*.07), int(h*.31)
           stops = [
-              (0.00, (255,255,255)),
-              (0.22, (212,212,212)),
-              (0.46, (139,139,139)),
-              (0.68, (243,243,243)),
-              (1.00, (167,167,167)),
+              (0.00,(255,255,255)),
+              (0.22,(212,212,212)),
+              (0.46,(139,139,139)),
+              (0.68,(243,243,243)),
+              (1.00,(167,167,167)),
           ]
-
           def metallic(t):
-              for (p0,c0),(p1,c1) in zip(stops, stops[1:]):
+              for (p0,c0),(p1,c1) in zip(stops,stops[1:]):
                   if p0 <= t <= p1:
                       f = (t-p0)/(p1-p0) if p1 > p0 else 0
                       return tuple(round(c0[i]*(1-f)+c1[i]*f) for i in range(3))
               return stops[-1][1]
-
-          for y in range(y0, y1):
-              t = (y-y0)/max(1,(y1-y0-1))
+          for y in range(y0,y1):
+              t = (y-y0)/max(1,y1-y0-1)
               target = metallic(t)
-              for x in range(x0, x1):
+              for x in range(x0,x1):
                   r,g,b = pix[x,y]
                   lum = max(r,g,b)
-                  a = max(0.0, min(1.0, (lum-7.0)/42.0))
+                  a = max(0.0,min(1.0,(lum-7.0)/42.0))
                   if a:
                       pix[x,y] = tuple(round(v*(1-a)+target[i]*a) for i,v in enumerate((r,g,b)))
-
-          im.save(p, optimize=True)
-
-          # 6) Keep GitHub Pages on the root custom domain and bypass Jekyll processing.
-          Path("CNAME").write_text("bgeaerials.com\n", encoding="utf-8")
+          im.save(p,optimize=True)
+          
+          Path("CNAME").write_text("bgeaerials.com\n",encoding="utf-8")
           Path(".nojekyll").touch()
+          
           PY
 
       - name: Commit final site update
@@ -196,10 +150,7 @@ jobs:
         run: |
           git config user.name "BGE Aerials Site Update"
           git config user.email "actions@users.noreply.github.com"
-          git add contact.html contact-tablet-metallic-socials.css \
-                  assets/contact-mobile-hero-exact.png \
-                  assets/contact-mobile-footer-exact.png \
-                  assets/about-mobile-bg.webp CNAME .nojekyll
+          git add contact.html contact-tablet-metallic-socials.css assets/contact-mobile-hero-exact.png assets/contact-mobile-footer-exact.png assets/about-mobile-bg.webp CNAME .nojekyll
           if git diff --cached --quiet; then
             echo "No changes needed."
             exit 0
