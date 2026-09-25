@@ -2,10 +2,10 @@
    B.G.E. AERIALS — ABOUT TABLET PORTRAIT APPROVED ARTWORK
    Scope: About page + tablet portrait only.
 
-   Shows the full approved portrait lighthouse artwork without
-   cropping it. The text is baked into the approved portrait image,
-   so it is not stretched or restyled. Desktop, mobile, and tablet
-   landscape remain unchanged.
+   Shows a slightly widened version of the approved portrait
+   lighthouse artwork so it fits tablet portrait width better,
+   while keeping the lighthouse and baked-in text unchanged.
+   Desktop, mobile, and tablet landscape remain unchanged.
    ============================================================ */
 
 @media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait) {
@@ -34,12 +34,10 @@
     margin:0 !important;
     padding:0 !important;
     overflow:hidden !important;
-    background:#050505 url("assets/about-tablet-portrait-approved.webp") center top / contain no-repeat !important;
+    background:#050505 url("assets/about-tablet-portrait-approved-wide.webp") center top / contain no-repeat !important;
     line-height:0 !important;
   }
 
-  /* Hide only the landscape artwork image in portrait.
-     The approved portrait artwork above replaces it. */
   body.about-page > .desktop-art.about-exact-stage > img{
     display:none !important;
   }
