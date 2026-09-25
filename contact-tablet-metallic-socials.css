@@ -31,15 +31,18 @@
     text-transform:uppercase !important;
     color:#d8d8d8 !important;
     transform:none !important;
-    background:none !important;
-    -webkit-background-clip:border-box !important;
-    background-clip:border-box !important;
-    -webkit-text-fill-color:#d8d8d8 !important;
+    background:linear-gradient(180deg,
+      #f8f8f8 0%,
+      #c8c8c8 26%,
+      #777777 49%,
+      #efefef 70%,
+      #a9a9a9 100%) !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
     text-shadow:
-      0 1px 0 #ffffff,
-      0 2px 0 #a2a2a2,
-      0 3px 0 #555555,
-      0 4px 5px rgba(255,255,255,.15) !important;
+      0 1px 0 rgba(255,255,255,.16),
+      0 2px 4px rgba(0,0,0,.82) !important;
   }
   .tablet-contact-footer .tablet-social-row{
     gap:clamp(30px,5.8vw,76px) !important;
