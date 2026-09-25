@@ -61,3 +61,11 @@
     object-fit:contain !important;
   }
 }
+
+/* Tablet portrait only — increase SOCIALS title size.
+   Icons, handle, landscape, mobile, and desktop remain unchanged. */
+@media screen and (min-width:768px) and (max-width:1366px) and (orientation:portrait) and (pointer:coarse) {
+  .tablet-contact-footer .socials-title{
+    font-size:clamp(30px,4.1vw,46px) !important;
+  }
+}
