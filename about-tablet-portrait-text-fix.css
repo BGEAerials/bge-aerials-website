@@ -1,0 +1,46 @@
+/* ============================================================
+   B.G.E. AERIALS — ABOUT TABLET PORTRAIT TEXT PROPORTION FIX
+   Scope: About page + tablet portrait only.
+
+   Keeps the existing About artwork and layout, but prevents the
+   artwork (and its baked-in text) from being stretched vertically.
+   Desktop, mobile, and tablet landscape are unchanged.
+   ============================================================ */
+
+@media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait) {
+
+  body.about-page > .desktop-art.about-exact-stage{
+    display:flex !important;
+    position:fixed !important;
+    top:76px !important;
+    right:0 !important;
+    bottom:auto !important;
+    left:0 !important;
+    width:100vw !important;
+    height:calc(100dvh - 76px) !important;
+    margin:0 !important;
+    padding:0 !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    background:#050505 !important;
+    line-height:0 !important;
+  }
+
+  body.about-page > .desktop-art.about-exact-stage > img{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    height:auto !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    max-width:100% !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    object-fit:contain !important;
+    object-position:center top !important;
+    transform:none !important;
+  }
+}
