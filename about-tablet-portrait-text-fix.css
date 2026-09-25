@@ -2,9 +2,9 @@
    B.G.E. AERIALS — ABOUT TABLET PORTRAIT APPROVED ARTWORK
    Scope: About page + tablet portrait only.
 
-   Uses the approved portrait lighthouse artwork at full-screen
-   scale. The text is baked into the approved portrait image, so
-   it is not stretched or restyled. Desktop, mobile, and tablet
+   Shows the full approved portrait lighthouse artwork without
+   cropping it. The text is baked into the approved portrait image,
+   so it is not stretched or restyled. Desktop, mobile, and tablet
    landscape remain unchanged.
    ============================================================ */
 
@@ -34,7 +34,7 @@
     margin:0 !important;
     padding:0 !important;
     overflow:hidden !important;
-    background:#050505 url("assets/about-tablet-portrait-approved.webp") center center / cover no-repeat !important;
+    background:#050505 url("assets/about-tablet-portrait-approved.webp") center top / contain no-repeat !important;
     line-height:0 !important;
   }
 
