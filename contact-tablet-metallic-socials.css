@@ -22,18 +22,24 @@
   }
   .tablet-contact-footer .tablet-contact-handle{
     display:inline-block !important;
-    font-family:Impact,"Arial Narrow Bold","Arial Narrow",Arial,sans-serif !important;
-    font-weight:400 !important;
-    letter-spacing:.13em !important;
+    margin:0 !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:clamp(30px,3.05vw,42px) !important;
+    font-weight:800 !important;
+    line-height:1 !important;
+    letter-spacing:.10em !important;
     text-transform:uppercase !important;
     color:#d8d8d8 !important;
-    transform:scaleX(1.18) !important;
-    transform-origin:center center !important;
-    background:linear-gradient(180deg,#fff 0%,#d7d7d7 20%,#8c8c8c 45%,#f5f5f5 67%,#a8a8a8 100%) !important;
-    -webkit-background-clip:text !important;
-    background-clip:text !important;
-    -webkit-text-fill-color:transparent !important;
-    text-shadow:0 1px 0 rgba(255,255,255,.16),0 2px 4px rgba(0,0,0,.82) !important;
+    transform:none !important;
+    background:none !important;
+    -webkit-background-clip:border-box !important;
+    background-clip:border-box !important;
+    -webkit-text-fill-color:#d8d8d8 !important;
+    text-shadow:
+      0 1px 0 #ffffff,
+      0 2px 0 #a2a2a2,
+      0 3px 0 #555555,
+      0 4px 5px rgba(255,255,255,.15) !important;
   }
   .tablet-contact-footer .tablet-social-row{
     gap:clamp(30px,5.8vw,76px) !important;
