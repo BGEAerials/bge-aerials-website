@@ -1,0 +1,69 @@
+/* ============================================================
+   B.G.E. AERIALS — ABOUT TABLET PORTRAIT READABILITY
+   Scope: About page + tablet portrait only.
+
+   Uses the portrait About artwork at its natural proportions so
+   the headline and body copy are not horizontally/vertically
+   stretched. Desktop, mobile, and tablet landscape are unchanged.
+   ============================================================ */
+
+@media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait) {
+
+  html,
+  body.about-page{
+    width:100% !important;
+    height:auto !important;
+    min-height:100dvh !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    background:#050505 !important;
+  }
+
+  body.about-page > .desktop-standard-header{
+    display:flex !important;
+  }
+
+  /* Hide the landscape artwork that was being stretched into portrait. */
+  body.about-page > .desktop-art.about-exact-stage{
+    display:none !important;
+  }
+
+  /* Use the approved portrait About composition instead. */
+  body.about-page > .mobile-about-exact{
+    display:block !important;
+    position:relative !important;
+    width:100% !important;
+    max-width:none !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin:76px 0 0 !important;
+    padding:0 !important;
+    overflow:visible !important;
+    background:#050505 !important;
+    line-height:0 !important;
+  }
+
+  body.about-page > .mobile-about-exact > img{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    height:auto !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    object-fit:contain !important;
+    object-position:top center !important;
+    transform:none !important;
+  }
+
+  /* Tablet uses the real metallic site header, not the mobile image menu. */
+  body.about-page .mobile-about-menu,
+  body.about-page > .mobile-header,
+  body.about-page > .mobile-drawer,
+  body.about-page > .shared-corner-logo{
+    display:none !important;
+  }
+}
