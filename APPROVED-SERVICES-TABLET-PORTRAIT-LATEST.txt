@@ -1,0 +1,22 @@
+B.G.E. AERIALS — LATEST APPROVED SERVICES TABLET PORTRAIT
+==========================================================
+
+Approved reference:
+    reference/APPROVED-services-tablet-portrait-latest.png
+
+Required appearance:
+- Full "OUR SERVICES" headline is visible.
+- Supporting copy beneath the headline is fully visible.
+- Header includes HOME next to the logo.
+- SERVICES remains the active/underlined navigation item.
+- Existing service cards remain unchanged.
+- This update applies to tablet portrait Services only unless separately approved.
+
+Do not alter:
+- Desktop
+- Mobile
+- Tablet landscape
+- Home page
+- Works page
+- About page
+- Contact page

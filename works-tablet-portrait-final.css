@@ -1,0 +1,142 @@
+
+/* ============================================================
+   B.G.E. AERIALS — WORKS TABLET PORTRAIT FINAL
+   Scope: Works page + tablet portrait ONLY.
+
+   Goal:
+   - Full browser-width portfolio
+   - Natural vertical scrolling
+   - No scaling-down / inset / clipping
+   - Keep the existing metallic header
+   - Do not affect desktop, mobile, tablet landscape, or other pages
+   ============================================================ */
+
+@media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait) {
+
+  html:has(body.works-page) {
+    width:100% !important;
+    height:auto !important;
+    min-height:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    background:#020202 !important;
+  }
+
+  body.works-page {
+    display:block !important;
+    position:static !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:100dvh !important;
+    margin:0 !important;
+    padding:76px 0 0 0 !important;
+    overflow-x:hidden !important;
+    overflow-y:visible !important;
+    background:#020202 !important;
+  }
+
+  /* Keep one real header, fixed while the portfolio scrolls. */
+  body.works-page > .desktop-standard-header {
+    display:flex !important;
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    height:76px !important;
+    min-height:76px !important;
+    z-index:100000 !important;
+  }
+
+  body.works-page > .mobile-header,
+  body.works-page > .mobile-drawer,
+  body.works-page > .mobile-only,
+  body.works-page > .desktop-unified-header,
+  body.works-page > .shared-corner-logo,
+  body.works-page > .works-live-desktop,
+  body.works-page > .works-desktop-stage,
+  body.works-page > .exact-desktop-page {
+    display:none !important;
+  }
+
+  /* Full-width, naturally tall portfolio. This is what makes it scroll. */
+  body.works-page > .works-approved-desktop {
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    width:100vw !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:visible !important;
+    clip-path:none !important;
+    background:#020202 !important;
+    line-height:0 !important;
+  }
+
+  body.works-page > .works-approved-desktop > img {
+    display:block !important;
+    position:static !important;
+    inset:auto !important;
+    width:100vw !important;
+    height:auto !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    max-width:none !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    transform:none !important;
+    object-fit:contain !important;
+    object-position:center top !important;
+    background:#020202 !important;
+  }
+
+  body.works-page > .works-approved-desktop::before,
+  body.works-page > .works-approved-desktop::after {
+    display:none !important;
+    content:none !important;
+  }
+}
+
+/* iPad Safari safety net. */
+@supports (-webkit-touch-callout:none) {
+  @media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait) {
+
+    html:has(body.works-page) {
+      height:auto !important;
+      min-height:100% !important;
+      overflow-x:hidden !important;
+      overflow-y:auto !important;
+    }
+
+    body.works-page {
+      height:auto !important;
+      min-height:100svh !important;
+      padding-top:76px !important;
+      overflow-x:hidden !important;
+      overflow-y:visible !important;
+    }
+
+    body.works-page > .works-approved-desktop {
+      width:100vw !important;
+      height:auto !important;
+      overflow:visible !important;
+      clip-path:none !important;
+    }
+
+    body.works-page > .works-approved-desktop > img {
+      position:static !important;
+      width:100vw !important;
+      height:auto !important;
+      max-width:none !important;
+      transform:none !important;
+      object-fit:contain !important;
+      object-position:center top !important;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+B.G.E. AERIALS — UNIFIED METALLIC HEADERS
+=========================================
+
+All header systems now use the same silver-metallic visual treatment.
+
+Applied across:
+- Desktop
+- Tablet landscape
+- Tablet portrait
+- Mobile
+- Home
+- Services
+- Works
+- About
+- Contact
+- 404
+
+What changed:
+- Shared black-metal header background
+- Silver-metallic navigation text
+- Silver-metallic active underline
+- Silver-metallic hamburger/menu controls
+- Metallic mobile/drawer navigation text
+- Image-based Contact mobile header refreshed to metallic
+- Image-based Services tablet-portrait header refreshed to metallic
+
+What did NOT change:
+- Page content
+- Page imagery outside header artwork
+- Page layout
+- Responsive breakpoints
+- Form behavior
+- Works portfolio content
