@@ -1,0 +1,24 @@
+B.G.E. AERIALS — FINAL SERVICES TABLET PORTRAIT
+================================================
+
+This version fixes only Services on tablets in portrait orientation.
+
+Final behavior:
+- One real metallic header
+- HOME / SERVICES / WORKS / ABOUT / CONTACT are live and clickable
+- SERVICES active underline
+- Live HTML OUR SERVICES headline and description
+- Scenic city/bridge artwork used only as the hero photographic background
+- Four live service rows with icons and text
+- Full viewport fit with scrolling disabled
+- No screenshot of a tablet/browser is used for the portrait page
+- No duplicate header
+
+Unchanged:
+- Desktop
+- Mobile
+- Tablet landscape
+- Home
+- Works
+- About
+- Contact

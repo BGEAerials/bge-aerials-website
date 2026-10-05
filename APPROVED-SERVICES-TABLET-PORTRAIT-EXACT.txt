@@ -1,0 +1,25 @@
+B.G.E. AERIALS — APPROVED SERVICES TABLET PORTRAIT (EXACT)
+========================================================
+
+Source asset:
+    assets/services-tablet-portrait-exact.png
+
+This tablet-portrait Services version is now matched to the latest approved
+exact reference image.
+
+What changed:
+- Services tablet portrait now uses the exact approved screen composition.
+- Full "OUR SERVICES" headline is visible.
+- Supporting copy beneath the heading is fully visible.
+- HOME is present in the header next to the logo.
+- SERVICES remains active.
+- Clickable navigation hotspots are layered over the approved artwork.
+
+Unchanged:
+- Desktop
+- Mobile
+- Tablet landscape
+- Home page
+- Works page
+- About page
+- Contact page
