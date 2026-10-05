@@ -109,6 +109,49 @@
       .desktop-home .desktop-art{content:url('assets/home-approved-metallic-slogan-clean-final.webp');width:100%!important;height:100%!important;object-fit:fill!important;object-position:center!important}
     }
 
+  
+    /* =========================================================
+       HOME — TABLET PORTRAIT TEXT-PROPORTION FIX
+       Tablet portrait only. Uses the already-approved portrait
+       Home artwork at its natural proportions so baked-in text
+       is never stretched. All other pages/orientations unchanged.
+       ========================================================= */
+    @media screen and (min-width:761px) and (max-width:1366px) and (orientation:portrait){
+      .desktop-home{
+        display:block !important;
+        position:fixed !important;
+        top:76px !important;
+        right:0 !important;
+        bottom:0 !important;
+        left:0 !important;
+        width:100vw !important;
+        height:auto !important;
+        margin:0 !important;
+        padding:0 !important;
+        overflow-x:hidden !important;
+        overflow-y:auto !important;
+        background:#000 !important;
+      }
+
+      .desktop-home .desktop-art{
+        content:url('assets/home-mobile-approved-metallic-slogan-clean-final.webp') !important;
+        display:block !important;
+        position:static !important;
+        inset:auto !important;
+        width:100% !important;
+        height:auto !important;
+        min-width:0 !important;
+        min-height:0 !important;
+        max-width:100% !important;
+        max-height:none !important;
+        margin:0 !important;
+        padding:0 !important;
+        object-fit:contain !important;
+        object-position:center top !important;
+        transform:none !important;
+      }
+    }
+
   </style>
 
   <link rel="stylesheet" href="tablet-portrait-header-match.css?v=20260916">
